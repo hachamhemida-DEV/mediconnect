@@ -38,7 +38,7 @@ export async function generateMetadata({
   if (!isKnownLocale(locale)) return {};
 
   const t = await getTranslations({ locale, namespace: 'meta' });
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://mediconnect.dz';
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://mediconnectdz.com';
 
   return {
     title:       t('title'),
