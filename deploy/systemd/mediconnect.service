@@ -1,0 +1,57 @@
+# =============================================================================
+#  MediConnect — systemd unit for direct Node deployment
+# =============================================================================
+#
+#  Use this if you prefer running Node directly on the host instead of
+#  Docker. Install with:
+#
+#    sudo cp deploy/systemd/mediconnect.service /etc/systemd/system/
+#    sudo systemctl daemon-reload
+#    sudo systemctl enable --now mediconnect
+#    sudo systemctl status mediconnect
+#
+#  View logs:
+#    sudo journalctl -u mediconnect -f
+#
+#  Prerequisites:
+#    - Node.js 20+ installed (we recommend nodesource or volta)
+#    - A system user `mediconnect` owning /opt/mediconnect
+#    - Postgres running and reachable, with .env.production configured
+#    - `npm ci && npm run build && npx prisma migrate deploy` already run
+# =============================================================================
+
+[Unit]
+Description=MediConnect — Medical equipment marketplace for Algeria
+Documentation=https://mediconnect.dz
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=mediconnect
+Group=mediconnect
+WorkingDirectory=/opt/mediconnect
+EnvironmentFile=/opt/mediconnect/.env.production
+ExecStart=/usr/bin/node /opt/mediconnect/.next/standalone/server.js
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=30s
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/mediconnect/uploads /opt/mediconnect/logs
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+LimitNOFILE=65536
+
+# Logging — goes to journald; use `journalctl -u mediconnect` to read.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mediconnect
+
+[Install]
+WantedBy=multi-user.target

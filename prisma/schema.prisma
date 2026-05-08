@@ -1,0 +1,332 @@
+// MediConnect — Prisma schema
+//
+// Dev:  SQLite at ./prisma/dev.db — zero-config, file-based
+// Prod: Postgres via DATABASE_URL env var (just swap `provider`)
+//
+// Regenerate client after any change:     npx prisma generate
+// Create / apply migration (dev):         npx prisma migrate dev --name <change>
+// Seed the db:                            npx prisma db seed
+// Visual DB browser:                      npx prisma studio
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------
+//  Enums — SQLite doesn't support native enums, so these are
+//  plain Strings constrained at the Zod layer.
+// ---------------------------------------------------------------
+//
+//  Role           : buyer | supplier | delivery | admin
+//  SupplierPlan   : basic | pro | gold | enterprise
+//  PaymentMethod  : cash | ccp | edahabia
+//  OrderStatus    : pending | confirmed | shipped | delivered | cancelled
+//  RfqStatus      : open | closed | fulfilled
+//  UsedCondition  : like_new | good | needs_service
+//  VerifyStatus   : pending | approved | rejected
+
+// ---------------------------------------------------------------
+//  Users + sessions
+// ---------------------------------------------------------------
+
+model User {
+  id           String   @id @default(cuid())
+  role         String   // buyer | supplier | delivery | admin
+  email        String   @unique
+  phone        String?
+  fullName     String
+  passwordHash String
+  wilaya       String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  verified     Boolean  @default(false)
+
+  // Relations
+  supplier        Supplier?
+  deliveryCompany DeliveryCompany?
+  orders          Order[]
+  rfqs            Rfq[]            @relation("BuyerRfqs")
+  usedListings    UsedListing[]
+  reviews         Review[]
+
+  @@index([role])
+  @@index([email])
+}
+
+// ---------------------------------------------------------------
+//  Suppliers
+// ---------------------------------------------------------------
+
+model Supplier {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessName   String
+  wilayaCode     Int
+  plan           String   @default("basic")                     // basic | pro | gold | enterprise
+  verifyStatus   String   @default("pending")                   // pending | approved | rejected
+  rating         Float    @default(0)
+  reviewsCount   Int      @default(0)
+  memberSince    DateTime @default(now())
+
+  // Relations
+  products        Product[]
+  rfqReplies      RfqReply[]
+  subscriptions   SupplierSubscription[]
+  adCampaigns     AdCampaign[]
+
+  @@index([plan])
+  @@index([verifyStatus])
+}
+
+model SupplierSubscription {
+  id            String   @id @default(cuid())
+  supplierId    String
+  supplier      Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  plan          String   // basic | pro | gold | enterprise
+  priceDZD      Int
+  periodStart   DateTime
+  periodEnd     DateTime
+  paid          Boolean  @default(false)
+  paymentMethod String?  // cash | ccp | edahabia
+  createdAt     DateTime @default(now())
+
+  @@index([supplierId])
+  @@index([periodEnd])
+}
+
+// ---------------------------------------------------------------
+//  Delivery companies
+// ---------------------------------------------------------------
+
+model DeliveryCompany {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessName  String
+  wilayasCovered String  // JSON array of wilaya codes, e.g. "[16,25,31]"
+  verifyStatus  String   @default("pending")                  // pending | approved | rejected
+  createdAt     DateTime @default(now())
+
+  shipments Shipment[]
+}
+
+// ---------------------------------------------------------------
+//  Catalog
+// ---------------------------------------------------------------
+
+model Category {
+  id     String  @id              // e.g. "c1"
+  slug   String  @unique
+  nameAr String
+  nameFr String
+  nameEn String
+  icon   String                   // emoji
+  color  String
+
+  products     Product[]
+  usedListings UsedListing[]
+  rfqs         Rfq[]
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  categoryId    String
+  category      Category @relation(fields: [categoryId], references: [id])
+  supplierId    String
+  supplier      Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  nameAr        String
+  nameFr        String
+  nameEn        String
+  brand         String
+  descAr        String
+  descFr        String
+  descEn        String
+  specsAr       String  // JSON array of strings
+  specsFr       String
+  specsEn       String
+  priceDZD      Int
+  stock         Int     @default(0)
+  imagesJson    String  @default("[]")   // JSON array of URLs / data-URIs
+  rating        Float   @default(0)
+  reviewsCount  Int     @default(0)
+  featured      Boolean @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  orderItems OrderItem[]
+  reviews    Review[]
+
+  @@index([categoryId])
+  @@index([supplierId])
+  @@index([featured])
+}
+
+// ---------------------------------------------------------------
+//  Orders + shipments
+// ---------------------------------------------------------------
+
+model Order {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  status         String   @default("pending")            // see enum
+  paymentMethod  String                                  // cash | ccp | edahabia
+  paymentProofUrl String?                                // set when CCP upload completes
+  paymentVerified Boolean  @default(false)
+  subtotalDZD    Int
+  tvaDZD         Int
+  shippingDZD    Int
+  totalDZD       Int
+  wilayaCode     Int
+  address        String
+  phone          String
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  items    OrderItem[]
+  shipment Shipment?
+  reviews  Review[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id            String  @id @default(cuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product @relation(fields: [productId], references: [id])
+  priceSnapshot Int                                       // snapshotted at checkout
+  nameSnapshot  String                                    // snapshotted at checkout (Arabic)
+  quantity      Int
+
+  @@index([orderId])
+}
+
+model Shipment {
+  id                String   @id @default(cuid())
+  orderId           String   @unique
+  order             Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  deliveryCompanyId String?
+  deliveryCompany   DeliveryCompany? @relation(fields: [deliveryCompanyId], references: [id])
+  status            String   @default("pending")          // pending | picked_up | in_transit | delivered | failed
+  trackingCode      String?
+  notes             String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+// ---------------------------------------------------------------
+//  RFQs
+// ---------------------------------------------------------------
+
+model Rfq {
+  id          String   @id @default(cuid())
+  buyerId     String
+  buyer       User     @relation("BuyerRfqs", fields: [buyerId], references: [id], onDelete: Cascade)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  title       String
+  description String
+  quantity    Int
+  budgetMax   Int?
+  wilayaCode  Int
+  status      String   @default("open")                    // open | closed | fulfilled
+  createdAt   DateTime @default(now())
+
+  replies RfqReply[]
+
+  @@index([buyerId])
+  @@index([status])
+}
+
+model RfqReply {
+  id          String   @id @default(cuid())
+  rfqId       String
+  rfq         Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  supplierId  String
+  supplier    Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  priceOffer  Int
+  message     String
+  createdAt   DateTime @default(now())
+
+  @@index([rfqId])
+}
+
+// ---------------------------------------------------------------
+//  Used marketplace
+// ---------------------------------------------------------------
+
+model UsedListing {
+  id                String   @id @default(cuid())
+  sellerId          String
+  seller            User     @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  categoryId        String
+  category          Category @relation(fields: [categoryId], references: [id])
+  title             String
+  description       String
+  condition         String                                   // like_new | good | needs_service
+  yearOfManufacture Int?
+  priceDZD          Int
+  imagesJson        String   @default("[]")
+  wilayaCode        Int
+  phone             String
+  active            Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  @@index([active])
+  @@index([categoryId])
+}
+
+// ---------------------------------------------------------------
+//  Reviews
+// ---------------------------------------------------------------
+
+model Review {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  rating     Int                                           // 1..5
+  comment    String
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, productId, orderId])
+  @@index([productId])
+}
+
+// ---------------------------------------------------------------
+//  Ads — schema only in Phase 3; billing & serving integration
+//  arrive in Phase 3.5.
+// ---------------------------------------------------------------
+
+model AdCampaign {
+  id          String   @id @default(cuid())
+  supplierId  String
+  supplier    Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  productId   String?
+  placement   String                                      // search_top | homepage_banner | category_sidebar
+  model       String                                      // cpm | cpc | time
+  budgetDZD   Int
+  startsAt    DateTime
+  endsAt      DateTime
+  active      Boolean  @default(true)
+  impressions Int      @default(0)
+  clicks      Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([supplierId])
+  @@index([active])
+}

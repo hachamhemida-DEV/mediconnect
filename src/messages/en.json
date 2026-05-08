@@ -1,0 +1,797 @@
+{
+  "meta": {
+    "title": "MediConnect — Smart Medical Equipment Marketplace in Algeria",
+    "description": "The leading platform for buying and selling medical equipment in Algeria. Connect with the best suppliers and buyers easily and securely."
+  },
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "suppliers": "Suppliers",
+    "used": "Used Market",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Log In",
+    "register": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Log Out"
+  },
+  "hero": {
+    "brand": "MediConnect",
+    "tagline": "Smart Medical Equipment Marketplace",
+    "description": "The leading platform to buy and sell medical equipment in Algeria. Connect with top suppliers and buyers with ease and confidence.",
+    "badges": {
+      "competitive": "Competitive Prices",
+      "fast": "Fast Delivery",
+      "trusted": "Full Trust"
+    },
+    "cta": {
+      "start": "Start Free",
+      "explore": "Explore Catalog"
+    }
+  },
+  "problems": {
+    "badge": "The Problem",
+    "title": "Why do you need MediConnect?",
+    "subtitle": "Real challenges you face in Algeria's medical equipment market",
+    "items": {
+      "delay": {
+        "title": "Repeated delivery delays",
+        "desc": "Waiting weeks for your order, impacting your practice and patient care"
+      },
+      "prices": {
+        "title": "Opaque pricing",
+        "desc": "You don't know the real price before purchase, and face large differences between suppliers"
+      },
+      "trust": {
+        "title": "Hard to find trusted suppliers",
+        "desc": "Hours wasted searching for certified suppliers without knowing whom to trust"
+      },
+      "info": {
+        "title": "Lack of product information",
+        "desc": "Real specs are unclear — you end up buying blind"
+      },
+      "complex": {
+        "title": "Complex purchase procedures",
+        "desc": "Too much paperwork, lengthy steps, and repeated calls to complete a simple order"
+      },
+      "noGuarantee": {
+        "title": "No guarantees",
+        "desc": "You buy without warranty, and no one takes responsibility when problems arise"
+      }
+    },
+    "solutionHint": "The solution: MediConnect ends these problems and makes buying medical equipment easy and safe."
+  },
+  "solutions": {
+    "badge": "The Solution",
+    "title": "Our solutions make your work easier",
+    "subtitle": "Comprehensive solutions for all your medical equipment marketplace problems",
+    "items": {
+      "network": {
+        "title": "Certified supplier network in Algeria",
+        "desc": "Verified and certified suppliers with real reviews from past customers",
+        "cta": "Save search and verification time"
+      },
+      "compare": {
+        "title": "Transparent real-time price comparison",
+        "desc": "Compare supplier prices directly and know the true price before buying",
+        "cta": "Save up to 30%"
+      },
+      "delivery": {
+        "title": "Fast and reliable delivery",
+        "desc": "Delivery within 24–72 hours to all wilayas, with live order tracking",
+        "cta": "Receive your order on time"
+      },
+      "guarantees": {
+        "title": "Real guarantees on every transaction",
+        "desc": "Full refund, continuous tech support, and protection of your rights",
+        "cta": "Buy with full confidence"
+      },
+      "details": {
+        "title": "Detailed info on every product",
+        "desc": "Full specs, real photos, quality certificates, and user reviews",
+        "cta": "Make informed decisions"
+      },
+      "simple": {
+        "title": "Simplified purchase procedures",
+        "desc": "Simple steps, less paperwork, checkout in a few clicks",
+        "cta": "Save 80% of your time"
+      }
+    }
+  },
+  "features": {
+    "badge": "Features",
+    "title": "What does MediConnect offer you?",
+    "subtitle": "Integrated features for a unique and smooth experience",
+    "items": {
+      "catalog": {
+        "title": "Full catalog",
+        "desc": "Thousands of medical products from hundreds of trusted suppliers"
+      },
+      "search": {
+        "title": "Smart search",
+        "desc": "Search by category, price, brand, or your specific needs"
+      },
+      "reviews": {
+        "title": "Genuine reviews",
+        "desc": "Real feedback from actual users to help you choose"
+      },
+      "support": {
+        "title": "Technical support",
+        "desc": "Specialized Arabic-speaking team, available 24/7"
+      },
+      "chat": {
+        "title": "Direct messaging",
+        "desc": "Talk directly to suppliers and request quotes"
+      },
+      "alerts": {
+        "title": "Instant notifications",
+        "desc": "Immediate alerts for offers, new products and discounts"
+      },
+      "reports": {
+        "title": "Detailed reports",
+        "desc": "Track purchases, analyze spend, and budget smartly"
+      },
+      "integrations": {
+        "title": "System integration",
+        "desc": "Seamless link with accounting and stock systems used in your clinic"
+      }
+    },
+    "more": {
+      "title": "+15 new features coming",
+      "desc": "We continuously add new features based on your needs"
+    }
+  },
+  "stats": {
+    "badge": "Numbers speak",
+    "title": "Trusted by hundreds of clients in Algeria",
+    "subtitle": "Real numbers reflecting the platform's success and user trust",
+    "items": {
+      "suppliers": {
+        "value": "+120",
+        "label": "Certified suppliers",
+        "desc": "Verified and approved"
+      },
+      "satisfied": {
+        "value": "96%",
+        "label": "Customer satisfaction",
+        "desc": "Based on real reviews"
+      },
+      "volume": {
+        "value": "+2.4M",
+        "label": "Algerian dinars",
+        "desc": "Monthly transaction volume"
+      },
+      "clients": {
+        "value": "+850",
+        "label": "Active clients",
+        "desc": "Across all Algerian wilayas"
+      }
+    },
+    "testimonials": {
+      "t1": {
+        "author": "Dr. Ahmed Kamal",
+        "org": "Kamal Medical Clinic — Algiers",
+        "text": "MediConnect saved us 40% on medical equipment costs. Delivery is fast and suppliers are reliable. I recommend it to every colleague."
+      },
+      "t2": {
+        "author": "Al-Nour Pharmacy",
+        "org": "Oran",
+        "text": "Since we started using the platform, we no longer waste time searching for suppliers. Everything is in one place with transparent prices."
+      },
+      "t3": {
+        "author": "Al-Shifa Medical Center",
+        "org": "Constantine",
+        "text": "Great technical support and quick response. They helped us choose equipment that fit our budget. Wonderful experience — highly recommended."
+      }
+    }
+  },
+  "how": {
+    "badge": "How to use",
+    "title": "How does the platform work?",
+    "subtitle": "5 simple steps to a safe and smooth buying experience",
+    "steps": {
+      "s1": {
+        "title": "Create a free account",
+        "desc": "Sign up in under 2 minutes with your email or phone"
+      },
+      "s2": {
+        "title": "Find the product",
+        "desc": "Use smart search or browse categories to find what you need"
+      },
+      "s3": {
+        "title": "Compare offers",
+        "desc": "Compare prices, specs, and reviews to choose the best"
+      },
+      "s4": {
+        "title": "Chat with the supplier",
+        "desc": "Message directly, request a quote, discuss details"
+      },
+      "s5": {
+        "title": "Complete the purchase",
+        "desc": "Pay via the platform and receive your order with full warranty"
+      }
+    },
+    "footerNote": "Less than 10 minutes!",
+    "footerDesc": "That's all the time you need for a full purchase",
+    "cta": "Start Now"
+  },
+  "whyUs": {
+    "badge": "Competitive advantages",
+    "title": "Why choose MediConnect?",
+    "subtitle": "What sets us apart from other alternatives in the Algerian market",
+    "items": {
+      "time": {
+        "title": "Save time and effort",
+        "desc": "No need to search in multiple places or call dozens of suppliers",
+        "badge": "Save 80% of your time"
+      },
+      "bestPrices": {
+        "title": "Best price guarantee",
+        "desc": "Transparent comparison ensures the best price in the market",
+        "badge": "Save up to 30%"
+      },
+      "rights": {
+        "title": "Buyer rights protection",
+        "desc": "Full refund guarantee, data protection, and legal support",
+        "badge": "Buy with confidence"
+      },
+      "support": {
+        "title": "Dedicated local support",
+        "desc": "Algerian team that understands your needs and speaks your language",
+        "badge": "Available 24/7"
+      },
+      "easy": {
+        "title": "Easy user experience",
+        "desc": "Simple and intuitive interface — no tech expertise needed",
+        "badge": "Easy to use"
+      },
+      "network": {
+        "title": "Wide supplier network",
+        "desc": "+120 certified suppliers across all Algerian wilayas",
+        "badge": "Nationwide coverage"
+      }
+    },
+    "banner": {
+      "title": "The optimal choice for the Algerian market",
+      "desc": "A platform designed specifically for healthcare needs in Algeria"
+    }
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Plans that fit every budget",
+    "subtitle": "Choose the plan that fits your needs and start your journey",
+    "perMonth": "DZD/month",
+    "buyer": {
+      "name": "Free Plan",
+      "audience": "For buyers",
+      "price": "Free",
+      "priceSuffix": "Forever",
+      "features": [
+        "Catalog search",
+        "View products",
+        "5 RFQs per month",
+        "Basic support",
+        "Reports and analytics"
+      ],
+      "cta": "Sign up free"
+    },
+    "basic": {
+      "name": "Standard",
+      "audience": "For new suppliers",
+      "price": "3,000",
+      "features": [
+        "Up to 50 products",
+        "3 photos per product",
+        "10 RFQs/month",
+        "Direct messaging",
+        "Basic analytics",
+        "Support (48h)"
+      ],
+      "cta": "Subscribe"
+    },
+    "pro": {
+      "name": "Pro",
+      "audience": "For professional suppliers",
+      "price": "5,000",
+      "features": [
+        "Up to 500 products",
+        "5 photos per product",
+        "Unlimited RFQs",
+        "Featured placement in search",
+        "Advanced analytics",
+        "Support (24h)",
+        "Detailed monthly reports"
+      ],
+      "cta": "Subscribe",
+      "popular": "Most popular"
+    },
+    "gold": {
+      "name": "Gold",
+      "audience": "For top suppliers",
+      "price": "10,000",
+      "features": [
+        "Unlimited products",
+        "10 photos + video",
+        "\"Gold\" badge by your name",
+        "2,000 DZD ad credit/month",
+        "Dedicated account manager",
+        "Priority support (4h)",
+        "ERP integration",
+        "Contract management"
+      ],
+      "cta": "Subscribe"
+    },
+    "delivery": {
+      "name": "Delivery Plan",
+      "audience": "For shipping companies",
+      "price": "3,000",
+      "features": [
+        "Company profile management",
+        "Wilaya-based pricing",
+        "Receive shipment requests",
+        "Shipment tracking",
+        "Revenue reports",
+        "Visibility in shipping list"
+      ],
+      "cta": "Join as carrier"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "audience": "For large organizations",
+      "price": "Custom",
+      "priceSuffix": "To your needs",
+      "features": [
+        "All Gold features",
+        "Multi-user accounts",
+        "Dedicated account manager",
+        "Long-term supply contracts",
+        "Up to 40% discount"
+      ],
+      "cta": "Contact us"
+    }
+  },
+  "cta": {
+    "badge": "Start your journey today",
+    "title": "Don't miss the opportunity!",
+    "subtitle": "Sign up now for free",
+    "desc": "Join hundreds of clients in Algeria saving time and money with MediConnect",
+    "benefits": {
+      "register": {
+        "title": "Instant free signup",
+        "desc": "Sign up in under 2 minutes at no cost"
+      },
+      "discount": {
+        "title": "20% discount",
+        "desc": "On your first purchase as an early adopter"
+      },
+      "refund": {
+        "title": "30-day money-back",
+        "desc": "If you're not satisfied, get a full refund"
+      },
+      "freeSupport": {
+        "title": "Free support",
+        "desc": "For a full month with early signup"
+      }
+    },
+    "primary": "Sign up free now",
+    "secondary": "Talk to an advisor"
+  },
+  "footer": {
+    "tagline": "Smart medical equipment marketplace in Algeria",
+    "sections": {
+      "platform": "Platform",
+      "legal": "Legal",
+      "support": "Support",
+      "follow": "Follow us"
+    },
+    "links": {
+      "about": "About",
+      "howItWorks": "How it works",
+      "careers": "Careers",
+      "press": "Press",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "refund": "Refund",
+      "help": "Help Center",
+      "contact": "Contact",
+      "faq": "FAQ"
+    },
+    "copyright": "All rights reserved © {year} MediConnect"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to continue your journey",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Remember me",
+      "forgot": "Forgot password?",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "register": "Create account",
+      "or": "or",
+      "google": "Continue with Google"
+    },
+    "register": {
+      "title": "Create your account in 2 minutes",
+      "subtitle": "Choose the right account type",
+      "roles": {
+        "buyer": {
+          "title": "Buyer",
+          "desc": "Clinic, pharmacy, doctor, hospital"
+        },
+        "supplier": {
+          "title": "Supplier",
+          "desc": "Medical equipment company or trader"
+        },
+        "delivery": {
+          "title": "Delivery",
+          "desc": "Shipping company wanting to join"
+        }
+      },
+      "fullName": "Full name",
+      "businessName": "Business name",
+      "email": "Email",
+      "phone": "Phone",
+      "wilaya": "Wilaya",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "terms": "I agree to the Terms of Use and Privacy Policy",
+      "submit": "Create account",
+      "hasAccount": "Already have an account?",
+      "login": "Log in"
+    },
+    "errors": {
+      "invalidEmail": "Invalid email address",
+      "shortPassword": "Password must be at least 8 characters",
+      "passwordMismatch": "Passwords don't match",
+      "required": "This field is required",
+      "acceptTerms": "You must accept the terms to continue"
+    }
+  },
+  "dashboard": {
+    "greeting": "Hello, {name}",
+    "welcome": "Welcome to your MediConnect dashboard",
+    "quickActions": "Quick actions",
+    "actions": {
+      "browse": {
+        "title": "Browse catalog",
+        "desc": "Explore thousands of medical products"
+      },
+      "rfq": {
+        "title": "Request a quote",
+        "desc": "Get quotes from multiple suppliers at once"
+      },
+      "orders": {
+        "title": "My orders",
+        "desc": "Track the status of your active orders"
+      },
+      "used": {
+        "title": "Used market",
+        "desc": "Buy or sell used medical equipment"
+      }
+    },
+    "recentOrders": "Recent orders",
+    "empty": "You haven't placed any order yet. Start by browsing the catalog.",
+    "catalog": {
+      "title": "Catalog",
+      "subtitle": "Browse thousands of medical products from certified suppliers",
+      "comingSoon": "Full catalog coming in phase 2 of development",
+      "searchPlaceholder": "Search for a product, brand, category..."
+    }
+  },
+  "common": {
+    "dzd": "DZD",
+    "currency": "Algerian dinar",
+    "loading": "Loading...",
+    "error": "An error occurred, try again.",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "required": "Required",
+    "errorTitle": "An unexpected error occurred",
+    "errorDesc": "We've logged the error and will investigate. Try again or return home.",
+    "errorRetry": "Try again",
+    "errorHome": "Home"
+  },
+  "catalog": {
+    "title": "Catalog",
+    "subtitle": "Thousands of medical products from certified Algerian suppliers",
+    "searchPlaceholder": "Search for a product, brand, category...",
+    "filters": "Filters",
+    "clearFilters": "Clear filters",
+    "category": "Category",
+    "allCategories": "All categories",
+    "priceRange": "Price range",
+    "priceMin": "From",
+    "priceMax": "To",
+    "wilaya": "Supplier wilaya",
+    "allWilayas": "All wilayas",
+    "sort": "Sort",
+    "sortOptions": {
+      "featured": "Featured first",
+      "priceAsc": "Price: low to high",
+      "priceDesc": "Price: high to low",
+      "rating": "Top rated",
+      "newest": "Newest"
+    },
+    "resultsCount": "{count} result(s)",
+    "noResults": "No matching results.",
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "inStock": "In stock ({count})",
+    "viewDetails": "View details",
+    "featured": "Featured"
+  },
+  "product": {
+    "specifications": "Specifications",
+    "supplier": "Supplier",
+    "reviews": "reviews",
+    "reviewsCount": "{count} reviews",
+    "memberSince": "Member since {date}",
+    "verified": "Verified",
+    "quantity": "Quantity",
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "requestQuote": "Request a quote",
+    "share": "Share",
+    "backToCatalog": "Back to catalog",
+    "relatedProducts": "Related products",
+    "brand": "Brand"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "emptyHint": "Browse the catalog to add products.",
+    "browseCatalog": "Browse catalog",
+    "item": "Item",
+    "price": "Price",
+    "quantity": "Qty",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "tva": "VAT 19%",
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "remove": "Remove",
+    "checkout": "Checkout",
+    "continueShopping": "Continue shopping",
+    "summary": "Summary",
+    "itemsCount": "{count} item(s)"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "subtitle": "Review your order and pick delivery + payment",
+    "shippingAddress": "Shipping address",
+    "wilaya": "Wilaya",
+    "address": "Full address",
+    "addressPlaceholder": "Street, number, city...",
+    "phone": "Phone",
+    "notes": "Notes (optional)",
+    "notesPlaceholder": "Delivery instructions...",
+    "paymentMethod": "Payment method",
+    "paymentMethods": {
+      "cash": {
+        "title": "Cash at office",
+        "desc": "Pay in cash at our office, instant activation"
+      },
+      "ccp": {
+        "title": "CCP / Baridi Mob",
+        "desc": "Post-office transfer; upload the receipt afterwards (24–48 h activation)"
+      },
+      "edahabia": {
+        "title": "Edahabia card",
+        "desc": "Instant electronic payment via Satim"
+      }
+    },
+    "ccpInfo": "After confirmation, the platform's CCP account details will be shown.",
+    "placeOrder": "Place order",
+    "success": "Order received!",
+    "successDesc": "Order #: {orderId}. You'll receive a confirmation email shortly.",
+    "trackOrder": "Track order"
+  },
+  "rfq": {
+    "title": "Quote requests",
+    "subtitle": "Get offers from multiple suppliers at once",
+    "createNew": "New request",
+    "empty": "No quote requests yet.",
+    "form": {
+      "title": "Quote-request form",
+      "productTitle": "Request title",
+      "description": "Detailed description",
+      "descriptionPlaceholder": "Specs, preferred brand, required features...",
+      "category": "Category",
+      "quantity": "Quantity",
+      "budget": "Max budget (optional)",
+      "wilaya": "Wilaya",
+      "submit": "Send request",
+      "submitSuccess": "Request sent — you'll receive replies within 48 hours."
+    },
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "fulfilled": "Fulfilled"
+    },
+    "repliesCount": "{count} replies",
+    "noReplies": "Awaiting supplier replies..."
+  },
+  "used": {
+    "title": "Used equipment marketplace",
+    "subtitle": "Free buying and selling of used medical equipment",
+    "badge": "100% free",
+    "sellNow": "Post a free listing",
+    "empty": "No listings yet.",
+    "condition": "Condition",
+    "conditions": {
+      "like_new": "Like new",
+      "good": "Good",
+      "needs_service": "Needs service"
+    },
+    "yearOfManufacture": "Year",
+    "contactSeller": "Contact seller",
+    "form": {
+      "title": "New listing",
+      "subtitle": "100% free — no fees, no commission",
+      "itemTitle": "Title",
+      "description": "Description",
+      "descriptionPlaceholder": "Condition, usage duration, reason for selling...",
+      "category": "Category",
+      "condition": "Condition",
+      "year": "Year of manufacture",
+      "price": "Asking price (DZD)",
+      "wilaya": "Wilaya",
+      "phone": "Phone",
+      "submit": "Publish",
+      "disclaimer": "Note: the platform does not guarantee the quality of used equipment. Verify directly with the seller."
+    }
+  },
+  "supplier": {
+    "greeting": "Hello, {name}",
+    "welcome": "Welcome to your supplier dashboard",
+    "plan": "Your plan",
+    "upgradePlan": "Upgrade plan",
+    "stats": {
+      "products": "Products",
+      "orders": "Orders",
+      "rfqs": "RFQs",
+      "revenue": "Revenue (month)",
+      "rating": "Rating"
+    },
+    "myProducts": "My products",
+    "addProduct": "Add product",
+    "addProductPhase3": "Now available",
+    "recentOrders": "Recent orders",
+    "pendingRfqs": "Pending RFQs",
+    "noProducts": "No products yet."
+  },
+  "productCrud": {
+    "newTitle": "New product",
+    "newSubtitle": "Add a product to your catalog (trilingual)",
+    "editTitle": "Edit product",
+    "editSubtitle": "Update details, price or stock",
+    "category": "Category",
+    "brand": "Brand",
+    "nameSection": "Product name (trilingual)",
+    "descSection": "Description (trilingual)",
+    "specsSection": "Specifications (trilingual)",
+    "addSpec": "Add specification",
+    "price": "Price (DZD)",
+    "stock": "Stock",
+    "create": "Create product",
+    "update": "Save changes",
+    "delete": "Delete",
+    "confirmDelete": "Delete this product?",
+    "planLimit": "You've reached your {plan} plan limit ({limit} products). Upgrade for more."
+  },
+  "admin": {
+    "badge": "Admin",
+    "nav": {
+      "overview": "Overview",
+      "suppliers": "Suppliers",
+      "orders": "Orders",
+      "payments": "Payments",
+      "rfqs": "RFQs"
+    },
+    "overview": {
+      "title": "Overview",
+      "subtitle": "Real-time platform statistics",
+      "queuesTitle": "Queues needing action",
+      "kpi": {
+        "users": "Users",
+        "products": "Products",
+        "orders": "Orders",
+        "revenue": "Total revenue"
+      },
+      "queue": {
+        "pendingSuppliers": "Suppliers awaiting approval",
+        "pendingPayments": "CCP payments to verify",
+        "openRfqs": "Open RFQs"
+      }
+    },
+    "suppliers": {
+      "title": "Supplier verification",
+      "subtitle": "Review and approve or reject applications",
+      "pending": "Pending",
+      "approved": "Approved",
+      "noPending": "No applications pending.",
+      "business": "Business",
+      "email": "Email",
+      "plan": "Plan",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "payments": {
+      "title": "CCP payment verification",
+      "subtitle": "Review receipts uploaded by buyers",
+      "pending": "Pending",
+      "verified": "Verified",
+      "noPending": "No payments to verify.",
+      "orderId": "Order #",
+      "buyer": "Buyer",
+      "amount": "Amount",
+      "method": "Method",
+      "proof": "Receipt",
+      "noProof": "No receipt uploaded",
+      "viewProof": "View receipt",
+      "approve": "Approve",
+      "reject": "Reject"
+    }
+  },
+  "payment": {
+    "uploadProof": "Upload CCP receipt",
+    "uploadDesc": "Upload a photo or PDF of the post-office transfer receipt",
+    "chooseFile": "Choose file",
+    "noFile": "No file selected",
+    "uploaded": "Receipt uploaded · awaiting admin verification",
+    "uploadSuccess": "Receipt uploaded successfully!",
+    "uploadError": "Upload failed. Try again.",
+    "maxSize": "Max: 5 MB",
+    "allowedFormats": "Formats: JPG, PNG, PDF"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "writeReview": "Write a review",
+    "yourRating": "Your rating",
+    "yourComment": "Your comment",
+    "commentPlaceholder": "Share your experience...",
+    "submit": "Submit review",
+    "submitted": "Thank you! Your review has been published.",
+    "noReviews": "No reviews yet.",
+    "beFirst": "Be the first to review this product!",
+    "stars": "{rating} / 5"
+  },
+  "delivery": {
+    "dashboard": {
+      "title": "Delivery company dashboard",
+      "subtitle": "Receive shipments, update their status, track your revenue",
+      "stats": {
+        "pending": "Pending",
+        "inTransit": "In transit",
+        "delivered": "Delivered",
+        "revenue": "Revenue (month)"
+      },
+      "shipments": "Shipments",
+      "noShipments": "No shipments yet.",
+      "orderId": "Order #",
+      "destination": "Destination",
+      "status": "Status",
+      "action": "Action"
+    },
+    "status": {
+      "pending": "Pending",
+      "picked_up": "Picked up",
+      "in_transit": "In transit",
+      "delivered": "Delivered",
+      "failed": "Failed"
+    },
+    "updateStatus": "Update"
+  }
+}

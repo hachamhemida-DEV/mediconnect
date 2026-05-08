@@ -1,0 +1,797 @@
+{
+  "meta": {
+    "title": "MediConnect — Le marché intelligent du matériel médical en Algérie",
+    "description": "La plateforme leader pour acheter et vendre du matériel médical en Algérie. Connectez-vous aux meilleurs fournisseurs et acheteurs en toute simplicité et sécurité."
+  },
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "suppliers": "Fournisseurs",
+    "used": "Matériel d'occasion",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "register": "Inscription",
+    "dashboard": "Tableau de bord",
+    "logout": "Déconnexion"
+  },
+  "hero": {
+    "brand": "MediConnect",
+    "tagline": "Le marché intelligent du matériel médical",
+    "description": "La plateforme leader pour acheter et vendre du matériel médical en Algérie. Trouvez les meilleurs fournisseurs et acheteurs en toute simplicité et sécurité.",
+    "badges": {
+      "competitive": "Prix compétitifs",
+      "fast": "Livraison rapide",
+      "trusted": "Confiance totale"
+    },
+    "cta": {
+      "start": "Commencer gratuitement",
+      "explore": "Explorer le catalogue"
+    }
+  },
+  "problems": {
+    "badge": "Le problème",
+    "title": "Pourquoi avez-vous besoin de MediConnect ?",
+    "subtitle": "Les vrais problèmes que vous rencontrez sur le marché algérien du matériel médical",
+    "items": {
+      "delay": {
+        "title": "Livraisons retardées",
+        "desc": "Vous attendez des semaines pour recevoir votre commande, ce qui affecte votre activité et vos patients"
+      },
+      "prices": {
+        "title": "Prix opaques",
+        "desc": "Vous ne connaissez pas le vrai prix avant l'achat, et découvrez de grosses différences entre fournisseurs"
+      },
+      "trust": {
+        "title": "Difficulté à trouver des fournisseurs fiables",
+        "desc": "Vous perdez des heures à chercher des fournisseurs certifiés, sans savoir à qui faire confiance"
+      },
+      "info": {
+        "title": "Manque d'informations produit",
+        "desc": "Vous ne connaissez pas les vraies spécifications et achetez à l'aveugle"
+      },
+      "complex": {
+        "title": "Procédures d'achat complexes",
+        "desc": "Trop de papiers, de démarches et d'appels pour une opération simple"
+      },
+      "noGuarantee": {
+        "title": "Absence de garanties",
+        "desc": "Vous achetez sans garantie, et personne ne prend la responsabilité en cas de problème"
+      }
+    },
+    "solutionHint": "La solution : MediConnect met fin à ces problèmes et rend l'achat de matériel médical simple et sûr."
+  },
+  "solutions": {
+    "badge": "La solution",
+    "title": "Nos solutions facilitent votre travail",
+    "subtitle": "Des solutions complètes à tous vos problèmes dans le marché du matériel médical",
+    "items": {
+      "network": {
+        "title": "Réseau de fournisseurs certifiés en Algérie",
+        "desc": "Fournisseurs vérifiés et certifiés, avec de vraies évaluations d'anciens clients",
+        "cta": "Gagnez du temps"
+      },
+      "compare": {
+        "title": "Comparaison de prix transparente et instantanée",
+        "desc": "Comparez les prix directement et connaissez le vrai prix avant d'acheter",
+        "cta": "Économisez jusqu'à 30%"
+      },
+      "delivery": {
+        "title": "Livraison rapide et fiable",
+        "desc": "Livraison en 24-72h dans toutes les wilayas d'Algérie, avec suivi en direct",
+        "cta": "Recevez votre commande à temps"
+      },
+      "guarantees": {
+        "title": "Garanties réelles sur chaque opération",
+        "desc": "Remboursement complet, support continu et protection de vos droits",
+        "cta": "Achetez en toute confiance"
+      },
+      "details": {
+        "title": "Informations détaillées sur chaque produit",
+        "desc": "Spécifications complètes, vraies photos, certificats qualité et avis utilisateurs",
+        "cta": "Prenez des décisions éclairées"
+      },
+      "simple": {
+        "title": "Procédures d'achat simplifiées",
+        "desc": "Étapes simples, moins de paperasse, achat en quelques clics",
+        "cta": "Gagnez 80% de votre temps"
+      }
+    }
+  },
+  "features": {
+    "badge": "Fonctionnalités",
+    "title": "Que vous offre MediConnect ?",
+    "subtitle": "Des fonctionnalités intégrées pour une expérience unique et fluide",
+    "items": {
+      "catalog": {
+        "title": "Catalogue complet",
+        "desc": "Des milliers de produits médicaux de centaines de fournisseurs de confiance"
+      },
+      "search": {
+        "title": "Recherche intelligente",
+        "desc": "Recherchez par catégorie, prix, marque ou selon vos besoins spécifiques"
+      },
+      "reviews": {
+        "title": "Avis authentiques",
+        "desc": "Vrais avis et évaluations d'utilisateurs pour vous aider à choisir"
+      },
+      "support": {
+        "title": "Support technique",
+        "desc": "Équipe dédiée arabophone, disponible 24h/24"
+      },
+      "chat": {
+        "title": "Messagerie directe",
+        "desc": "Contactez directement les fournisseurs et demandez des devis"
+      },
+      "alerts": {
+        "title": "Notifications en temps réel",
+        "desc": "Alertes immédiates sur les offres spéciales et nouveautés"
+      },
+      "reports": {
+        "title": "Rapports détaillés",
+        "desc": "Suivez vos achats, analysez vos dépenses et optimisez votre budget"
+      },
+      "integrations": {
+        "title": "Intégration système",
+        "desc": "Connexion fluide avec les systèmes comptables et de stock de votre clinique"
+      }
+    },
+    "more": {
+      "title": "+15 nouvelles fonctionnalités à venir",
+      "desc": "Nous travaillons en continu pour ajouter de nouvelles fonctionnalités selon vos besoins"
+    }
+  },
+  "stats": {
+    "badge": "Les chiffres parlent",
+    "title": "La confiance de centaines de clients en Algérie",
+    "subtitle": "Des chiffres réels qui reflètent le succès de la plateforme",
+    "items": {
+      "suppliers": {
+        "value": "+120",
+        "label": "Fournisseurs certifiés",
+        "desc": "Vérifiés et approuvés"
+      },
+      "satisfied": {
+        "value": "96%",
+        "label": "Satisfaction client",
+        "desc": "Basé sur de vrais avis"
+      },
+      "volume": {
+        "value": "+2.4M",
+        "label": "Dinars algériens",
+        "desc": "Volume mensuel des transactions"
+      },
+      "clients": {
+        "value": "+850",
+        "label": "Clients actifs",
+        "desc": "Dans toutes les wilayas"
+      }
+    },
+    "testimonials": {
+      "t1": {
+        "author": "Dr. Ahmed Kamal",
+        "org": "Clinique Kamal — Alger",
+        "text": "MediConnect nous a fait économiser 40% sur le matériel médical. Livraison rapide, fournisseurs fiables. Je le recommande à tous mes confrères."
+      },
+      "t2": {
+        "author": "Pharmacie Al-Nour",
+        "org": "Oran",
+        "text": "Depuis que nous utilisons la plateforme, nous ne perdons plus de temps à chercher. Tout au même endroit avec des prix transparents."
+      },
+      "t3": {
+        "author": "Centre Al-Shifa",
+        "org": "Constantine",
+        "text": "Support technique excellent, réponses rapides. Ils nous ont aidés à choisir le matériel adapté à notre budget. Je recommande vivement."
+      }
+    }
+  },
+  "how": {
+    "badge": "Comment ça marche",
+    "title": "Comment fonctionne la plateforme ?",
+    "subtitle": "5 étapes simples pour une expérience d'achat sûre et fluide",
+    "steps": {
+      "s1": {
+        "title": "Créer un compte gratuit",
+        "desc": "Inscrivez-vous en moins de 2 minutes avec votre email ou téléphone"
+      },
+      "s2": {
+        "title": "Rechercher le produit",
+        "desc": "Utilisez la recherche intelligente ou parcourez les catégories"
+      },
+      "s3": {
+        "title": "Comparer les offres",
+        "desc": "Comparez prix, spécifications et avis pour choisir le meilleur"
+      },
+      "s4": {
+        "title": "Contacter le fournisseur",
+        "desc": "Message direct, demande de devis, discussion des détails"
+      },
+      "s5": {
+        "title": "Finaliser l'achat",
+        "desc": "Payez via la plateforme et recevez votre commande garantie"
+      }
+    },
+    "footerNote": "Moins de 10 minutes !",
+    "footerDesc": "C'est tout le temps qu'il vous faut pour un achat complet",
+    "cta": "Commencer maintenant"
+  },
+  "whyUs": {
+    "badge": "Avantages compétitifs",
+    "title": "Pourquoi choisir MediConnect ?",
+    "subtitle": "Ce qui nous distingue des autres alternatives sur le marché algérien",
+    "items": {
+      "time": {
+        "title": "Gain de temps et d'énergie",
+        "desc": "Plus besoin de chercher à plusieurs endroits ou d'appeler des dizaines de fournisseurs",
+        "badge": "Gagnez 80% de votre temps"
+      },
+      "bestPrices": {
+        "title": "Garantie des meilleurs prix",
+        "desc": "Comparaison transparente pour obtenir le meilleur prix du marché",
+        "badge": "Économisez jusqu'à 30%"
+      },
+      "rights": {
+        "title": "Protection de l'acheteur",
+        "desc": "Remboursement complet, protection des données et support juridique",
+        "badge": "Achetez en confiance"
+      },
+      "support": {
+        "title": "Support local dédié",
+        "desc": "Équipe algérienne qui comprend vos besoins et parle votre langue",
+        "badge": "Disponible 24/7"
+      },
+      "easy": {
+        "title": "Expérience utilisateur simple",
+        "desc": "Interface simple et intuitive, aucune expertise technique requise",
+        "badge": "Facile à utiliser"
+      },
+      "network": {
+        "title": "Vaste réseau de fournisseurs",
+        "desc": "+120 fournisseurs certifiés dans toutes les wilayas d'Algérie",
+        "badge": "Couverture nationale"
+      }
+    },
+    "banner": {
+      "title": "Le choix idéal pour le marché algérien",
+      "desc": "Plateforme conçue pour répondre aux besoins des professionnels de santé en Algérie"
+    }
+  },
+  "pricing": {
+    "badge": "Tarifs",
+    "title": "Des forfaits pour tous les budgets",
+    "subtitle": "Choisissez le forfait qui correspond à vos besoins",
+    "perMonth": "DZD/mois",
+    "buyer": {
+      "name": "Forfait Gratuit",
+      "audience": "Pour les acheteurs",
+      "price": "Gratuit",
+      "priceSuffix": "À vie",
+      "features": [
+        "Recherche dans le catalogue",
+        "Consultation des produits",
+        "5 demandes de devis/mois",
+        "Support technique de base",
+        "Rapports et statistiques"
+      ],
+      "cta": "S'inscrire gratuitement"
+    },
+    "basic": {
+      "name": "Forfait Standard",
+      "audience": "Pour les fournisseurs débutants",
+      "price": "3 000",
+      "features": [
+        "Jusqu'à 50 produits",
+        "3 photos par produit",
+        "10 demandes RFQ/mois",
+        "Messagerie directe",
+        "Statistiques de base",
+        "Support (48h)"
+      ],
+      "cta": "S'abonner"
+    },
+    "pro": {
+      "name": "Forfait Pro",
+      "audience": "Pour les fournisseurs professionnels",
+      "price": "5 000",
+      "features": [
+        "Jusqu'à 500 produits",
+        "5 photos par produit",
+        "Demandes RFQ illimitées",
+        "Mise en avant dans la recherche",
+        "Statistiques avancées",
+        "Support (24h)",
+        "Rapports mensuels détaillés"
+      ],
+      "cta": "S'abonner",
+      "popular": "Le plus populaire"
+    },
+    "gold": {
+      "name": "Forfait Or",
+      "audience": "Pour les grands fournisseurs",
+      "price": "10 000",
+      "features": [
+        "Produits illimités",
+        "10 photos + vidéo",
+        "Badge \"Or\" à côté de votre nom",
+        "2 000 DZD de crédit pub/mois",
+        "Gestionnaire de compte dédié",
+        "Support prioritaire (4h)",
+        "Intégration ERP",
+        "Gestion de contrats"
+      ],
+      "cta": "S'abonner"
+    },
+    "delivery": {
+      "name": "Forfait Transporteurs",
+      "audience": "Pour les sociétés de livraison",
+      "price": "3 000",
+      "features": [
+        "Gestion de profil",
+        "Tarification par wilaya",
+        "Réception des demandes",
+        "Suivi des expéditions",
+        "Rapports de revenus",
+        "Visibilité dans la liste"
+      ],
+      "cta": "Nous rejoindre"
+    },
+    "enterprise": {
+      "name": "Forfait Entreprise",
+      "audience": "Pour les grandes structures",
+      "price": "Sur mesure",
+      "priceSuffix": "Selon vos besoins",
+      "features": [
+        "Toutes les fonctionnalités Or",
+        "Comptes multi-utilisateurs",
+        "Gestionnaire dédié",
+        "Contrats long terme",
+        "Jusqu'à 40% de remise"
+      ],
+      "cta": "Nous contacter"
+    }
+  },
+  "cta": {
+    "badge": "Commencez avec nous aujourd'hui",
+    "title": "Ne manquez pas l'occasion !",
+    "subtitle": "Inscrivez-vous gratuitement",
+    "desc": "Rejoignez des centaines de clients en Algérie qui économisent temps et argent avec MediConnect",
+    "benefits": {
+      "register": {
+        "title": "Inscription gratuite",
+        "desc": "Inscrivez-vous en moins de 2 minutes sans frais"
+      },
+      "discount": {
+        "title": "20% de remise",
+        "desc": "Sur votre premier achat en tant qu'early adopter"
+      },
+      "refund": {
+        "title": "Garantie 30 jours",
+        "desc": "Remboursement intégral si vous n'êtes pas satisfait"
+      },
+      "freeSupport": {
+        "title": "Support gratuit",
+        "desc": "Pendant 1 mois complet avec l'inscription anticipée"
+      }
+    },
+    "primary": "Inscription gratuite",
+    "secondary": "Parler à un conseiller"
+  },
+  "footer": {
+    "tagline": "Le marché intelligent du matériel médical en Algérie",
+    "sections": {
+      "platform": "Plateforme",
+      "legal": "Légal",
+      "support": "Support",
+      "follow": "Suivez-nous"
+    },
+    "links": {
+      "about": "À propos",
+      "howItWorks": "Fonctionnement",
+      "careers": "Carrières",
+      "press": "Presse",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "cookies": "Cookies",
+      "refund": "Remboursement",
+      "help": "Aide",
+      "contact": "Contact",
+      "faq": "FAQ"
+    },
+    "copyright": "Tous droits réservés © {year} MediConnect"
+  },
+  "auth": {
+    "login": {
+      "title": "Bon retour",
+      "subtitle": "Connectez-vous à votre compte",
+      "email": "Email",
+      "password": "Mot de passe",
+      "remember": "Se souvenir de moi",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "noAccount": "Pas de compte ?",
+      "register": "Créer un compte",
+      "or": "ou",
+      "google": "Continuer avec Google"
+    },
+    "register": {
+      "title": "Créez votre compte en 2 minutes",
+      "subtitle": "Choisissez le type de compte",
+      "roles": {
+        "buyer": {
+          "title": "Acheteur",
+          "desc": "Clinique, pharmacie, médecin, hôpital"
+        },
+        "supplier": {
+          "title": "Fournisseur",
+          "desc": "Entreprise ou négociant en matériel médical"
+        },
+        "delivery": {
+          "title": "Transporteur",
+          "desc": "Société de livraison souhaitant nous rejoindre"
+        }
+      },
+      "fullName": "Nom complet",
+      "businessName": "Nom de l'entreprise",
+      "email": "Email",
+      "phone": "Téléphone",
+      "wilaya": "Wilaya",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "terms": "J'accepte les conditions d'utilisation et la politique de confidentialité",
+      "submit": "Créer le compte",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter"
+    },
+    "errors": {
+      "invalidEmail": "Email invalide",
+      "shortPassword": "Le mot de passe doit contenir au moins 8 caractères",
+      "passwordMismatch": "Les mots de passe ne correspondent pas",
+      "required": "Ce champ est requis",
+      "acceptTerms": "Vous devez accepter les conditions"
+    }
+  },
+  "dashboard": {
+    "greeting": "Bonjour, {name}",
+    "welcome": "Bienvenue sur votre tableau de bord MediConnect",
+    "quickActions": "Actions rapides",
+    "actions": {
+      "browse": {
+        "title": "Parcourir le catalogue",
+        "desc": "Explorez des milliers de produits médicaux"
+      },
+      "rfq": {
+        "title": "Demander un devis",
+        "desc": "Obtenez des devis de plusieurs fournisseurs"
+      },
+      "orders": {
+        "title": "Mes commandes",
+        "desc": "Suivez l'état de vos commandes"
+      },
+      "used": {
+        "title": "Matériel d'occasion",
+        "desc": "Achetez ou vendez du matériel d'occasion"
+      }
+    },
+    "recentOrders": "Commandes récentes",
+    "empty": "Vous n'avez pas encore de commande. Commencez par parcourir le catalogue.",
+    "catalog": {
+      "title": "Catalogue",
+      "subtitle": "Des milliers de produits médicaux de fournisseurs certifiés",
+      "comingSoon": "Le catalogue complet arrive en phase 2 du développement",
+      "searchPlaceholder": "Rechercher un produit, une marque, une catégorie..."
+    }
+  },
+  "common": {
+    "dzd": "DZD",
+    "currency": "Dinar algérien",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite, réessayez.",
+    "retry": "Réessayer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "continue": "Continuer",
+    "back": "Retour",
+    "next": "Suivant",
+    "search": "Rechercher",
+    "all": "Tout",
+    "yes": "Oui",
+    "no": "Non",
+    "required": "Obligatoire",
+    "errorTitle": "Une erreur inattendue s'est produite",
+    "errorDesc": "Nous avons enregistré l'erreur et allons enquêter. Réessayez ou retournez à l'accueil.",
+    "errorRetry": "Réessayer",
+    "errorHome": "Accueil"
+  },
+  "catalog": {
+    "title": "Catalogue",
+    "subtitle": "Des milliers de produits médicaux chez des fournisseurs agréés",
+    "searchPlaceholder": "Rechercher un produit, une marque, une catégorie...",
+    "filters": "Filtres",
+    "clearFilters": "Effacer",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories",
+    "priceRange": "Plage de prix",
+    "priceMin": "De",
+    "priceMax": "À",
+    "wilaya": "Wilaya du fournisseur",
+    "allWilayas": "Toutes les wilayas",
+    "sort": "Trier",
+    "sortOptions": {
+      "featured": "Mis en avant",
+      "priceAsc": "Prix : croissant",
+      "priceDesc": "Prix : décroissant",
+      "rating": "Meilleures évaluations",
+      "newest": "Plus récents"
+    },
+    "resultsCount": "{count} résultat(s)",
+    "noResults": "Aucun résultat.",
+    "addToCart": "Ajouter au panier",
+    "outOfStock": "Rupture",
+    "inStock": "En stock ({count})",
+    "viewDetails": "Voir détails",
+    "featured": "En vedette"
+  },
+  "product": {
+    "specifications": "Spécifications",
+    "supplier": "Fournisseur",
+    "reviews": "avis",
+    "reviewsCount": "{count} avis",
+    "memberSince": "Membre depuis {date}",
+    "verified": "Vérifié",
+    "quantity": "Quantité",
+    "addToCart": "Ajouter au panier",
+    "buyNow": "Acheter",
+    "requestQuote": "Demander un devis",
+    "share": "Partager",
+    "backToCatalog": "Retour au catalogue",
+    "relatedProducts": "Produits liés",
+    "brand": "Marque"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "emptyHint": "Parcourez le catalogue pour ajouter des produits.",
+    "browseCatalog": "Parcourir le catalogue",
+    "item": "Article",
+    "price": "Prix",
+    "quantity": "Quantité",
+    "subtotal": "Sous-total",
+    "total": "Total",
+    "tva": "TVA 19 %",
+    "shipping": "Livraison",
+    "shippingFree": "Gratuite",
+    "remove": "Supprimer",
+    "checkout": "Commander",
+    "continueShopping": "Continuer les achats",
+    "summary": "Résumé",
+    "itemsCount": "{count} article(s)"
+  },
+  "checkout": {
+    "title": "Commande",
+    "subtitle": "Vérifiez votre commande et choisissez livraison et paiement",
+    "shippingAddress": "Adresse de livraison",
+    "wilaya": "Wilaya",
+    "address": "Adresse complète",
+    "addressPlaceholder": "Rue, numéro, ville...",
+    "phone": "Téléphone",
+    "notes": "Notes (optionnel)",
+    "notesPlaceholder": "Instructions de livraison...",
+    "paymentMethod": "Mode de paiement",
+    "paymentMethods": {
+      "cash": {
+        "title": "Espèces au bureau",
+        "desc": "Paiement au siège, activation instantanée"
+      },
+      "ccp": {
+        "title": "CCP / Baridi Mob",
+        "desc": "Virement postal ; upload du reçu (activation 24–48 h)"
+      },
+      "edahabia": {
+        "title": "Carte Edahabia",
+        "desc": "Paiement instantané via Satim"
+      }
+    },
+    "ccpInfo": "Après confirmation, les coordonnées CCP seront affichées.",
+    "placeOrder": "Confirmer",
+    "success": "Commande reçue !",
+    "successDesc": "N° : {orderId}. Un e-mail de confirmation vous sera envoyé.",
+    "trackOrder": "Suivre"
+  },
+  "rfq": {
+    "title": "Demandes de devis",
+    "subtitle": "Obtenez des offres de plusieurs fournisseurs en une fois",
+    "createNew": "Nouvelle demande",
+    "empty": "Aucune demande pour l'instant.",
+    "form": {
+      "title": "Formulaire",
+      "productTitle": "Titre",
+      "description": "Description détaillée",
+      "descriptionPlaceholder": "Spécifications, marque préférée, fonctionnalités...",
+      "category": "Catégorie",
+      "quantity": "Quantité",
+      "budget": "Budget max (optionnel)",
+      "wilaya": "Wilaya",
+      "submit": "Envoyer",
+      "submitSuccess": "Envoyée — vous recevrez des réponses sous 48 h."
+    },
+    "status": {
+      "open": "Ouverte",
+      "closed": "Fermée",
+      "fulfilled": "Terminée"
+    },
+    "repliesCount": "{count} réponse(s)",
+    "noReplies": "En attente de réponses..."
+  },
+  "used": {
+    "title": "Marché d'occasion",
+    "subtitle": "Achat / vente gratuit de matériel médical d'occasion",
+    "badge": "100 % gratuit",
+    "sellNow": "Publier une annonce",
+    "empty": "Aucune annonce.",
+    "condition": "État",
+    "conditions": {
+      "like_new": "Comme neuf",
+      "good": "Bon état",
+      "needs_service": "À entretenir"
+    },
+    "yearOfManufacture": "Année",
+    "contactSeller": "Contacter le vendeur",
+    "form": {
+      "title": "Nouvelle annonce",
+      "subtitle": "100 % gratuit — aucune commission",
+      "itemTitle": "Titre",
+      "description": "Description",
+      "descriptionPlaceholder": "État, durée d'utilisation, raison de la vente...",
+      "category": "Catégorie",
+      "condition": "État",
+      "year": "Année",
+      "price": "Prix demandé (DA)",
+      "wilaya": "Wilaya",
+      "phone": "Téléphone",
+      "submit": "Publier",
+      "disclaimer": "Note : la plateforme ne garantit pas la qualité. Vérifiez avec le vendeur."
+    }
+  },
+  "supplier": {
+    "greeting": "Bonjour, {name}",
+    "welcome": "Bienvenue dans votre espace fournisseur",
+    "plan": "Votre offre",
+    "upgradePlan": "Passer à l'offre supérieure",
+    "stats": {
+      "products": "Produits",
+      "orders": "Commandes",
+      "rfqs": "Demandes de devis",
+      "revenue": "Revenus (mois)",
+      "rating": "Note"
+    },
+    "myProducts": "Mes produits",
+    "addProduct": "Ajouter",
+    "addProductPhase3": "Disponible maintenant",
+    "recentOrders": "Commandes récentes",
+    "pendingRfqs": "Demandes en attente",
+    "noProducts": "Aucun produit."
+  },
+  "productCrud": {
+    "newTitle": "Nouveau produit",
+    "newSubtitle": "Ajoutez un produit à votre catalogue (trilingue)",
+    "editTitle": "Modifier le produit",
+    "editSubtitle": "Mettez à jour les détails, le prix ou le stock",
+    "category": "Catégorie",
+    "brand": "Marque",
+    "nameSection": "Nom (trilingue)",
+    "descSection": "Description (trilingue)",
+    "specsSection": "Spécifications (trilingues)",
+    "addSpec": "Ajouter une spécification",
+    "price": "Prix (DA)",
+    "stock": "Stock",
+    "create": "Créer",
+    "update": "Enregistrer",
+    "delete": "Supprimer",
+    "confirmDelete": "Confirmer la suppression ?",
+    "planLimit": "Limite de votre offre ({plan}) atteinte : {limit} produits. Passez à l'offre supérieure."
+  },
+  "admin": {
+    "badge": "Admin",
+    "nav": {
+      "overview": "Vue d'ensemble",
+      "suppliers": "Fournisseurs",
+      "orders": "Commandes",
+      "payments": "Paiements",
+      "rfqs": "Demandes de devis"
+    },
+    "overview": {
+      "title": "Vue d'ensemble",
+      "subtitle": "Statistiques en temps réel",
+      "queuesTitle": "Files d'attente à traiter",
+      "kpi": {
+        "users": "Utilisateurs",
+        "products": "Produits",
+        "orders": "Commandes",
+        "revenue": "Revenus totaux"
+      },
+      "queue": {
+        "pendingSuppliers": "Fournisseurs à valider",
+        "pendingPayments": "Paiements CCP à vérifier",
+        "openRfqs": "Demandes de devis ouvertes"
+      }
+    },
+    "suppliers": {
+      "title": "Validation des fournisseurs",
+      "subtitle": "Examinez et approuvez ou rejetez les candidatures",
+      "pending": "En attente",
+      "approved": "Approuvés",
+      "noPending": "Aucune candidature en attente.",
+      "business": "Entreprise",
+      "email": "E-mail",
+      "plan": "Offre",
+      "approve": "Approuver",
+      "reject": "Rejeter"
+    },
+    "payments": {
+      "title": "Vérification des paiements CCP",
+      "subtitle": "Examinez les reçus téléversés par les clients",
+      "pending": "En attente",
+      "verified": "Vérifiés",
+      "noPending": "Aucun paiement à vérifier.",
+      "orderId": "N° de commande",
+      "buyer": "Acheteur",
+      "amount": "Montant",
+      "method": "Méthode",
+      "proof": "Reçu",
+      "noProof": "Aucun reçu téléversé",
+      "viewProof": "Voir le reçu",
+      "approve": "Approuver",
+      "reject": "Rejeter"
+    }
+  },
+  "payment": {
+    "uploadProof": "Téléverser le reçu CCP",
+    "uploadDesc": "Téléversez une photo ou un PDF du reçu postal",
+    "chooseFile": "Choisir un fichier",
+    "noFile": "Aucun fichier sélectionné",
+    "uploaded": "Reçu téléversé · en attente de vérification admin",
+    "uploadSuccess": "Reçu téléversé avec succès !",
+    "uploadError": "Échec du téléversement. Réessayez.",
+    "maxSize": "Max : 5 Mo",
+    "allowedFormats": "Formats : JPG, PNG, PDF"
+  },
+  "reviews": {
+    "title": "Avis",
+    "writeReview": "Écrire un avis",
+    "yourRating": "Votre note",
+    "yourComment": "Votre commentaire",
+    "commentPlaceholder": "Partagez votre expérience...",
+    "submit": "Publier l'avis",
+    "submitted": "Merci ! Votre avis est publié.",
+    "noReviews": "Aucun avis pour l'instant.",
+    "beFirst": "Soyez le premier à donner votre avis !",
+    "stars": "{rating} / 5"
+  },
+  "delivery": {
+    "dashboard": {
+      "title": "Espace transporteur",
+      "subtitle": "Recevez les expéditions, mettez à jour leur statut, suivez vos revenus",
+      "stats": {
+        "pending": "En attente",
+        "inTransit": "En transit",
+        "delivered": "Livrées",
+        "revenue": "Revenus (mois)"
+      },
+      "shipments": "Expéditions",
+      "noShipments": "Aucune expédition.",
+      "orderId": "N°",
+      "destination": "Destination",
+      "status": "Statut",
+      "action": "Action"
+    },
+    "status": {
+      "pending": "En attente",
+      "picked_up": "Récupéré",
+      "in_transit": "En transit",
+      "delivered": "Livré",
+      "failed": "Échec"
+    },
+    "updateStatus": "Mettre à jour"
+  }
+}

@@ -1,0 +1,122 @@
+# =============================================================================
+#  MediConnect — docker-compose for single-server production
+# =============================================================================
+#
+#  Brings up three services:
+#    - postgres    : PostgreSQL 16, persistent volume, health-checked
+#    - app         : Next.js standalone runner (from Dockerfile)
+#    - nginx       : reverse proxy + TLS terminator + static caching
+#
+#  Quick start on a fresh VPS:
+#    1. Install docker + docker-compose plugin
+#    2. cp .env.production.example .env.production    # edit secrets
+#    3. ./deploy/install.sh                           # one-shot setup
+#    4. docker compose up -d
+#    5. docker compose logs -f app                    # watch boot
+#
+#  For SSL, run certbot once and re-run the stack (see DEPLOYMENT.md).
+# =============================================================================
+
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: mediconnect-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER:     ${POSTGRES_USER:-mediconnect}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB:       ${POSTGRES_DB:-mediconnect}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Optional: daily dumps via cron volume-mount — see deploy/backup.sh
+      - ./backups:/backups
+    ports:
+      # Expose on localhost only — Nginx reaches it over the docker network.
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mediconnect} -d ${POSTGRES_DB:-mediconnect}"]
+      interval: 10s
+      timeout:  5s
+      retries:  6
+    networks:
+      - mcnet
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mediconnect:latest
+    container_name: mediconnect-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV:              production
+      DATABASE_URL:          postgresql://${POSTGRES_USER:-mediconnect}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-mediconnect}?schema=public
+      JWT_SECRET:            ${JWT_SECRET}
+      JWT_EXPIRES_IN:        ${JWT_EXPIRES_IN:-7d}
+      NEXT_PUBLIC_APP_URL:   ${NEXT_PUBLIC_APP_URL}
+      NEXT_PUBLIC_APP_NAME:  ${NEXT_PUBLIC_APP_NAME:-MediConnect}
+      NEXT_PUBLIC_DEFAULT_LOCALE: ${NEXT_PUBLIC_DEFAULT_LOCALE:-ar}
+      LOG_LEVEL:             ${LOG_LEVEL:-info}
+      # Email — optional; unset means dev-style terminal previews
+      RESEND_API_KEY:        ${RESEND_API_KEY:-}
+      EMAIL_FROM:            ${EMAIL_FROM:-MediConnect <noreply@mediconnect.dz>}
+      # CCP / Baridi Mob coordinates shown on success page
+      CCP_ACCOUNT_NUMBER:    ${CCP_ACCOUNT_NUMBER:-}
+      CCP_ACCOUNT_KEY:       ${CCP_ACCOUNT_KEY:-}
+      CCP_ACCOUNT_HOLDER:    ${CCP_ACCOUNT_HOLDER:-}
+      # Satim (Phase 4 — stub mode works without these)
+      SATIM_MERCHANT_ID:     ${SATIM_MERCHANT_ID:-}
+      SATIM_API_KEY:         ${SATIM_API_KEY:-}
+      SATIM_API_URL:         ${SATIM_API_URL:-}
+      SATIM_WEBHOOK_SECRET:  ${SATIM_WEBHOOK_SECRET:-}
+      UPLOADS_DIR:           /app/uploads
+    volumes:
+      # Persist uploaded CCP receipts across container rebuilds.
+      - uploads_data:/app/uploads
+    ports:
+      # Internal — Nginx reaches it over docker network.
+      - "127.0.0.1:3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 15s
+      timeout:  5s
+      retries:  6
+      start_period: 45s
+    networks:
+      - mcnet
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: mediconnect-nginx
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/mediconnect.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/dhparam.pem:/etc/nginx/dhparam.pem:ro
+      # Let's Encrypt certs live here after certbot runs once.
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - certbot_webroot:/var/www/certbot
+      # Serve uploaded files directly from Nginx without going through Node.
+      - uploads_data:/var/www/uploads:ro
+    networks:
+      - mcnet
+
+volumes:
+  postgres_data:
+    driver: local
+  uploads_data:
+    driver: local
+  certbot_webroot:
+    driver: local
+
+networks:
+  mcnet:
+    driver: bridge
