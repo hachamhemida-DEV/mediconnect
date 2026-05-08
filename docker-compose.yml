@@ -101,6 +101,7 @@ services:
     volumes:
       - ./nginx/mediconnect.conf:/etc/nginx/conf.d/default.conf:ro
       - ./nginx/proxy_common.conf:/etc/nginx/conf.d/proxy_common.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot_webroot:/var/www/certbot
       # Serve uploaded files directly from Nginx without going through Node.
       - uploads_data:/var/www/uploads:ro
