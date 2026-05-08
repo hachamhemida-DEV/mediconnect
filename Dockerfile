@@ -40,6 +40,9 @@ COPY . .
 # Needed at build time to resolve env vars baked into the client bundle.
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+# Dummy DATABASE_URL so Prisma doesn't crash during Next.js static generation.
+# The real URL is injected at runtime via .env.production.
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
 
 RUN npx prisma generate
 RUN npm run build

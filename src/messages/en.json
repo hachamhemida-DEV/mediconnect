@@ -743,6 +743,21 @@
       "viewProof": "View receipt",
       "approve": "Approve",
       "reject": "Reject"
+    },
+    "ads": {
+      "title": "Ad Management",
+      "subtitle": "Review and approve ad campaigns",
+      "pending": "Pending",
+      "active": "Active",
+      "noPending": "No campaigns pending approval.",
+      "noActive": "No active campaigns.",
+      "budget": "Budget",
+      "starts": "Starts",
+      "ends": "Ends",
+      "supplier": "Supplier",
+      "placement": "Placement",
+      "impressions": "Impressions",
+      "clicks": "Clicks"
     }
   },
   "payment": {

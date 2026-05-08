@@ -743,6 +743,21 @@
       "viewProof": "Voir le reçu",
       "approve": "Approuver",
       "reject": "Rejeter"
+    },
+    "ads": {
+      "title": "Gestion des publicités",
+      "subtitle": "Examiner et approuver les campagnes publicitaires",
+      "pending": "En attente",
+      "active": "Actives",
+      "noPending": "Aucune campagne en attente.",
+      "noActive": "Aucune campagne active.",
+      "budget": "Budget",
+      "starts": "Début",
+      "ends": "Fin",
+      "supplier": "Fournisseur",
+      "placement": "Emplacement",
+      "impressions": "Impressions",
+      "clicks": "Clics"
     }
   },
   "payment": {
