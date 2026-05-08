@@ -47,7 +47,7 @@ export function apiHandler<P = Record<string, string | string[]>>(
 ) {
   return async function wrapped(
     req: Request,
-    routeCtx?: NextRouteContext<P>,
+    routeCtx: NextRouteContext<P> = { params: Promise.resolve({} as P) },
   ): Promise<Response> {
     const requestId = req.headers.get('x-request-id') ?? crypto.randomUUID();
     const ctxLog: LogContext = { requestId };
@@ -70,7 +70,7 @@ export function apiHandler<P = Record<string, string | string[]>>(
     let response: Response;
 
     try {
-      const params = routeCtx ? await routeCtx.params : ({} as P);
+      const params = await routeCtx.params;
       response = await handler(req, { requestId, logger: log, params });
     } catch (err) {
       const e = err as Error;
