@@ -5,6 +5,8 @@ import { prisma } from '@/lib/prisma';
 import { listProducts } from '@/lib/catalog';
 import { NewAdCampaignForm } from '@/components/supplier/NewAdCampaignForm';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function NewAdPage({ params }: Props) {

@@ -5,6 +5,8 @@ import { listCategories, findProduct } from '@/lib/catalog';
 import { prisma } from '@/lib/prisma';
 import { ProductForm } from '@/components/supplier/ProductForm';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string; id: string }>; }
 
 export default async function EditProductPage({ params }: Props) {

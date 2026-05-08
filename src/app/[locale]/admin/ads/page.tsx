@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { formatDZD } from '@/lib/utils';
 import { AdModerateActions } from '@/components/admin/AdModerateActions';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function AdminAdsPage({ params }: Props) {

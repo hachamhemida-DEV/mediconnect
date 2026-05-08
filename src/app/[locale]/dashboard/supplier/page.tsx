@@ -7,6 +7,8 @@ import { productName, categoryName } from '@/lib/seed';
 import { prisma } from '@/lib/prisma';
 import { formatDZD } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{ locale: string }>;
 }

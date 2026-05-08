@@ -4,6 +4,8 @@ import { VerifyPaymentActions } from '@/components/admin/VerifyPaymentActions';
 import { WILAYAS, wilayaName } from '@/lib/wilayas';
 import { formatDZD } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function AdminPaymentsPage({ params }: Props) {

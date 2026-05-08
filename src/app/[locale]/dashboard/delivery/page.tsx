@@ -8,6 +8,8 @@ import { WILAYAS, wilayaName } from '@/lib/wilayas';
 import { formatDZD } from '@/lib/utils';
 import { ShipmentStatusSelect } from '@/components/delivery/ShipmentStatusSelect';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function DeliveryDashboardPage({ params }: Props) {

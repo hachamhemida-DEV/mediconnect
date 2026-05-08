@@ -3,6 +3,8 @@ import { Link } from '@/i18n/routing';
 import { prisma } from '@/lib/prisma';
 import { formatDZD } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function AdminOverviewPage({ params }: Props) {

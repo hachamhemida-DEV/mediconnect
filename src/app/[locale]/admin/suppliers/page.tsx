@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import { WILAYAS, wilayaName } from '@/lib/wilayas';
 import { VerifyActions } from '@/components/admin/VerifyActions';
 
+export const dynamic = 'force-dynamic';
+
 interface Props { params: Promise<{ locale: string }>; }
 
 export default async function AdminSuppliersPage({ params }: Props) {

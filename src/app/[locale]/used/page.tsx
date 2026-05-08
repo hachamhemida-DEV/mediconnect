@@ -7,6 +7,8 @@ import { findCategory, categoryName } from '@/lib/seed';
 import { WILAYAS, wilayaName } from '@/lib/wilayas';
 import { formatDZD } from '@/lib/utils';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{ locale: string }>;
 }
