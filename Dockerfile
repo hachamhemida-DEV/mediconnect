@@ -81,5 +81,5 @@ EXPOSE 3000
 # Tini is PID 1 so SIGTERM propagates properly to the Node process.
 ENTRYPOINT ["/sbin/tini", "--"]
 
-# Run migrations on start, then the server.
-CMD ["sh", "-c", "npx prisma migrate deploy && node server.js"]
+# Start the Next.js server. Run `prisma db push` manually after first deploy.
+CMD ["node", "server.js"]
