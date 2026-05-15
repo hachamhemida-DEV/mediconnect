@@ -53,6 +53,8 @@ export default function NewUsedListingPage() {
       if (!res.ok) { 
         if (body.details && Array.isArray(body.details)) {
           setError(`Erreur de validation: ${body.details.map((d: any) => d.path.join('.') + ' ' + d.message).join(', ')}`);
+        } else if (body.details && typeof body.details === 'string') {
+          setError(`${body.error}: ${body.details}`);
         } else {
           setError(body.error ?? 'error'); 
         }
