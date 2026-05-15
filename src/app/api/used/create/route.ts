@@ -25,13 +25,21 @@ export async function POST(req: Request) {
   try { body = await req.json(); } catch { return NextResponse.json({ error: 'INVALID_JSON' }, { status: 400 }); }
 
   const parsed = Schema.safeParse(body);
-  if (!parsed.success) return NextResponse.json({ error: 'INVALID_INPUT' }, { status: 400 });
+  if (!parsed.success) {
+    return NextResponse.json({ error: 'INVALID_INPUT', details: parsed.error.issues }, { status: 400 });
+  }
 
-  const listing = await createUsedListing({
-    sellerId: session.sub,
-    images:   [],
-    ...parsed.data,
-  });
+  let listing;
+  try {
+    listing = await createUsedListing({
+      sellerId: session.sub,
+      images:   [],
+      ...parsed.data,
+    });
+  } catch (err: any) {
+    console.error('Failed to create used listing:', err);
+    return NextResponse.json({ error: 'DATABASE_ERROR', details: err.message }, { status: 500 });
+  }
 
   return NextResponse.json({ ok: true, data: listing }, { status: 201 });
 }

@@ -50,7 +50,14 @@ export default function NewUsedListingPage() {
         }),
       });
       const body = await res.json();
-      if (!res.ok) { setError(body.error ?? 'error'); return; }
+      if (!res.ok) { 
+        if (body.details && Array.isArray(body.details)) {
+          setError(`Erreur de validation: ${body.details.map((d: any) => d.path.join('.') + ' ' + d.message).join(', ')}`);
+        } else {
+          setError(body.error ?? 'error'); 
+        }
+        return; 
+      }
       router.push(`/used/${body.data.id}`);
     } catch {
       setError('error');
