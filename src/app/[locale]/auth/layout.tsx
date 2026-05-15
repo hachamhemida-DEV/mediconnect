@@ -3,7 +3,17 @@ import { Link } from '@/i18n/routing';
 import { Logo } from '@/components/ui/Logo';
 import { LocaleSwitcher } from '@/components/layout/LocaleSwitcher';
 
-export default function AuthLayout({ children }: { children: ReactNode }) {
+import { getSession } from '@/lib/auth';
+import { redirect } from 'next/navigation';
+
+export default async function AuthLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
+  const session = await getSession();
+  if (session) {
+    const { locale } = await params;
+    const path = session.role === 'admin' ? '/admin' : `/dashboard/${session.role}`;
+    redirect(`/${locale}${path}`);
+  }
+
   return (
     <div className="relative flex min-h-screen flex-col bg-brand-gradient-soft">
       <div className="absolute inset-0 bg-hero-mesh" aria-hidden />
