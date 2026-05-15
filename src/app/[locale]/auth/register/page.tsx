@@ -96,12 +96,18 @@ export default function RegisterPage() {
       });
       const body = await res.json();
       if (!res.ok) {
-        setError(body.error ?? tErr('required'));
+        if (body.error === 'EMAIL_TAKEN') {
+          setError("Cet email est déjà utilisé. Veuillez vous connecter.");
+        } else if (body.error === 'INVALID_INPUT') {
+          setError(`Erreur de saisie dans le champ : ${body.field}`);
+        } else {
+          setError("Une erreur inattendue s'est produite côté serveur.");
+        }
         return;
       }
       router.push('/dashboard/buyer');
     } catch {
-      setError(tErr('required'));
+      setError("Erreur de connexion avec le serveur. Veuillez réessayer.");
     } finally {
       setBusy(false);
     }
