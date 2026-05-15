@@ -30,26 +30,28 @@ export interface RateLimitResult {
 
 export class RateLimiter {
   private hits = new Map<string, number[]>();
+  private readonly _max: number;
+  private readonly _windowMs: number;
 
-  constructor(
-    private readonly limit: number,
-    private readonly windowMs: number,
-  ) {}
+  constructor(max: number, windowMs: number) {
+    this._max = max;
+    this._windowMs = windowMs;
+  }
 
   async limit(key: string): Promise<RateLimitResult> {
     const now = Date.now();
-    const cutoff = now - this.windowMs;
+    const cutoff = now - this._windowMs;
 
     const existing = this.hits.get(key) ?? [];
     // Drop timestamps outside the window
     const fresh = existing.filter((t) => t > cutoff);
 
-    if (fresh.length >= this.limit) {
-      const reset = fresh[0]! + this.windowMs;
+    if (fresh.length >= this._max) {
+      const reset = fresh[0]! + this._windowMs;
       this.hits.set(key, fresh);
       return {
         success:   false,
-        limit:     this.limit,
+        limit:     this._max,
         remaining: 0,
         reset,
       };
@@ -59,9 +61,9 @@ export class RateLimiter {
     this.hits.set(key, fresh);
     return {
       success:   true,
-      limit:     this.limit,
-      remaining: this.limit - fresh.length,
-      reset:     now + this.windowMs,
+      limit:     this._max,
+      remaining: this._max - fresh.length,
+      reset:     now + this._windowMs,
     };
   }
 }
