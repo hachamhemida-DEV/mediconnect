@@ -429,6 +429,10 @@
         "delivery": {
           "title": "Transporteur",
           "desc": "Société de livraison souhaitant nous rejoindre"
+        },
+        "reparateur": {
+          "title": "Réparateur",
+          "desc": "Technicien ou réparateur de matériel"
         }
       },
       "fullName": "Nom complet",

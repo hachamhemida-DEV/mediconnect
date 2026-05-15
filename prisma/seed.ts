@@ -35,7 +35,7 @@ async function main() {
   }
 
   console.log('→ Seeding demo admin…');
-  const adminPwd = await bcrypt.hash('admin123', 10);
+  const adminPwd = await bcrypt.hash('mediadmin123', 10);
   await prisma.user.upsert({
     where:  { email: 'admin@mediconnect.dz' },
     update: {},
@@ -172,7 +172,7 @@ async function main() {
 
   console.log('\n✓ Seed complete.');
   console.log('  Demo accounts (password in parens):');
-  console.log('    admin@mediconnect.dz (admin123)');
+  console.log('    admin@mediconnect.dz (mediadmin123)');
   console.log('    buyer@demo.dz        (buyer123)');
   console.log('    sup1@demo.dz         (supplier123)  — Gold plan');
   console.log('    sup2@demo.dz         (supplier123)  — Pro plan');

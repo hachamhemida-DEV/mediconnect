@@ -4,7 +4,7 @@
  * schema can stay in sync.
  */
 
-export type Role = 'buyer' | 'supplier' | 'delivery' | 'admin';
+export type Role = 'buyer' | 'supplier' | 'delivery' | 'admin' | 'reparateur';
 
 /** Algerian subscription packages (see spec v1.2). */
 export type SupplierPlan = 'basic' | 'pro' | 'gold' | 'enterprise';

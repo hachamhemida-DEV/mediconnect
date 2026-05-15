@@ -429,6 +429,10 @@
         "delivery": {
           "title": "Delivery",
           "desc": "Shipping company wanting to join"
+        },
+        "reparateur": {
+          "title": "Repairer",
+          "desc": "Maintenance technician or equipment repairer"
         }
       },
       "fullName": "Full name",

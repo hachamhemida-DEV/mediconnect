@@ -6,7 +6,7 @@ import { apiHandler } from '@/lib/api-handler';
 import { authLimiter } from '@/lib/rate-limit';
 
 const Schema = z.object({
-  role:         z.enum(['buyer', 'supplier', 'delivery']),
+  role:         z.enum(['buyer', 'supplier', 'delivery', 'reparateur']),
   fullName:     z.string().trim().min(2).max(120),
   businessName: z.string().trim().max(160).optional(),
   email:        z.string().trim().toLowerCase().email(),
