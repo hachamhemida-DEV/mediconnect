@@ -19,7 +19,7 @@ export default async function BuyerOrdersPage({ params }: Props) {
   const currencyLoc = locale === 'ar' ? 'ar-DZ' : locale === 'fr' ? 'fr-DZ' : 'en-DZ';
 
   const orders = await prisma.order.findMany({
-    where: { buyerId: session.sub },
+    where: { userId: session.sub },
     orderBy: { createdAt: 'desc' },
     include: {
       items: { include: { product: { select: { nameFr: true, nameAr: true, nameEn: true } } } },
