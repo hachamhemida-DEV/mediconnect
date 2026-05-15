@@ -20,8 +20,12 @@ export default function LoginPage() {
     e.preventDefault();
     setError(null);
 
-    if (!email || !password) {
-      setError(tErr('required'));
+    if (!email) {
+      setError(`${t('email')} : ${tErr('required')}`);
+      return;
+    }
+    if (!password) {
+      setError(`${t('password')} : ${tErr('required')}`);
       return;
     }
 
@@ -34,12 +38,28 @@ export default function LoginPage() {
       });
       const body = await res.json();
       if (!res.ok) {
-        setError(body.error ?? tErr('required'));
+        if (body.error === 'INVALID_CREDENTIALS') {
+          setError('Email ou mot de passe incorrect.');
+        } else if (body.error === 'INVALID_INPUT') {
+          setError(tErr('invalidEmail'));
+        } else {
+          setError("Une erreur inattendue s'est produite. Réessayez.");
+        }
         return;
       }
-      router.push('/dashboard/buyer');
+      // Redirect based on user role
+      const role = body.data?.role;
+      if (role === 'admin') {
+        router.push('/dashboard/admin');
+      } else if (role === 'supplier') {
+        router.push('/dashboard/supplier');
+      } else if (role === 'delivery') {
+        router.push('/dashboard/delivery');
+      } else {
+        router.push('/dashboard/buyer');
+      }
     } catch {
-      setError(tErr('required'));
+      setError('Erreur de connexion avec le serveur. Veuillez réessayer.');
     } finally {
       setBusy(false);
     }
