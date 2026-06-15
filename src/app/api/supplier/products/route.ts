@@ -14,18 +14,18 @@ const PLAN_LIMITS: Record<string, number> = {
 
 const CreateSchema = z.object({
   categoryId: z.string().trim().min(1),
-  nameAr:     z.string().trim().min(2).max(200),
-  nameFr:     z.string().trim().min(2).max(200),
-  nameEn:     z.string().trim().min(2).max(200),
+  nameAr:     z.string().trim().min(1).max(200),
+  nameFr:     z.string().trim().min(1).max(200),
+  nameEn:     z.string().trim().min(1).max(200),
   brand:      z.string().trim().min(1).max(80),
-  descAr:     z.string().trim().min(5).max(2000),
-  descFr:     z.string().trim().min(5).max(2000),
-  descEn:     z.string().trim().min(5).max(2000),
+  descAr:     z.string().trim().min(1).max(2000),
+  descFr:     z.string().trim().min(1).max(2000),
+  descEn:     z.string().trim().min(1).max(2000),
   specsAr:    z.array(z.string().min(1)).max(20).default([]),
   specsFr:    z.array(z.string().min(1)).max(20).default([]),
   specsEn:    z.array(z.string().min(1)).max(20).default([]),
-  priceDZD:   z.number().int().min(0).max(1_000_000_000),
-  stock:      z.number().int().min(0).max(100_000),
+  priceDZD:   z.coerce.number().int().min(0).max(1_000_000_000),
+  stock:      z.coerce.number().int().min(0).max(100_000),
 });
 
 export async function POST(req: Request) {
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
   const parsed = CreateSchema.safeParse(body);
   if (!parsed.success) {
-    return NextResponse.json({ error: 'INVALID_INPUT', details: parsed.error.issues[0]?.message }, { status: 400 });
+    return NextResponse.json({ error: 'INVALID_INPUT', details: parsed.error.issues }, { status: 400 });
   }
 
   // Enforce per-plan limit

@@ -87,9 +87,21 @@ export function ProductForm({
       });
       const body = await res.json();
       if (!res.ok) {
-        setError(body.error === 'PLAN_LIMIT_REACHED'
+        let msg = body.error === 'PLAN_LIMIT_REACHED'
           ? t('planLimit', { limit: body.limit, plan: body.plan })
-          : body.error ?? 'error');
+          : body.error ?? 'error';
+        
+        if (body.details) {
+          if (Array.isArray(body.details)) {
+            msg += ': ' + body.details.map((d: any) => `${d.path?.join('.')}: ${d.message}`).join(', ');
+          } else if (typeof body.details === 'string') {
+            msg += ': ' + body.details;
+          } else {
+            msg += ': ' + JSON.stringify(body.details);
+          }
+        }
+        
+        setError(msg);
         return;
       }
       router.push(redirectTo);
