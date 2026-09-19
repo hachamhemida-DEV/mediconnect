@@ -31,7 +31,7 @@ export default async function AuthLayout({ children, params }: { children: React
       </main>
 
       <footer className="container-mc relative py-6 text-center text-xs text-ink-500">
-        © {new Date().getFullYear()} MediConnect · mediconnect.dz
+        © {new Date().getFullYear()} MediConnect · Made with ♥ by Hachem Hamida - Khenchela 🇩🇿
       </footer>
     </div>
   );

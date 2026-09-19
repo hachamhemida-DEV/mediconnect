@@ -102,7 +102,7 @@ export function Footer() {
             {t('copyright', { year })}
           </div>
           <div className="text-xs text-ink-500">
-            Made with ♥ in Algeria 🇩🇿
+            Made with ♥ by Hachem Hamida - Khenchela 🇩🇿
           </div>
         </div>
       </div>
