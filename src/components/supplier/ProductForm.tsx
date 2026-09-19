@@ -174,12 +174,25 @@ export function ProductForm({
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+
+    const primaryName = values.nameAr.trim() || values.nameFr.trim() || values.nameEn.trim();
+    if (!primaryName) {
+      setError(locale === 'ar' ? 'يرجى إدخال اسم المنتج على الأقل بلغة واحدة' : 'Please enter the product name (at least in one language)');
+      return;
+    }
+
     setBusy(true);
     try {
       const payload = {
         ...values,
-        priceDZD: Number(values.priceDZD),
-        stock:    Number(values.stock),
+        nameAr:   values.nameAr.trim() || primaryName,
+        nameFr:   values.nameFr.trim() || primaryName,
+        nameEn:   values.nameEn.trim() || primaryName,
+        descAr:   values.descAr.trim() || values.descFr.trim() || values.descEn.trim() || '',
+        descFr:   values.descFr.trim() || values.descAr.trim() || values.descEn.trim() || '',
+        descEn:   values.descEn.trim() || values.descFr.trim() || values.descAr.trim() || '',
+        priceDZD: Number(values.priceDZD) || 0,
+        stock:    Number(values.stock) || 0,
         specsAr:  values.specsAr.filter((s) => s.trim()),
         specsFr:  values.specsFr.filter((s) => s.trim()),
         specsEn:  values.specsEn.filter((s) => s.trim()),
@@ -231,7 +244,9 @@ export function ProductForm({
         {/* Basic */}
         <div className="grid gap-5 md:grid-cols-2">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-ink-800">{t('category')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink-800">
+              {t('category')} <span className="text-red-500">*</span>
+            </label>
             <select
               value={values.categoryId}
               onChange={(e) => update('categoryId', e.target.value)}
@@ -245,7 +260,9 @@ export function ProductForm({
             </select>
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-ink-800">{t('brand')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink-800">
+              {t('brand')} <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               required
@@ -258,7 +275,13 @@ export function ProductForm({
 
         {/* Names trilingual */}
         <fieldset>
-          <legend className="mb-2 text-sm font-bold text-ink-800">{t('nameSection')}</legend>
+          <legend className="mb-2 flex items-center gap-2 text-sm font-bold text-ink-800">
+            <span>{t('nameSection')}</span>
+            <span className="text-red-500">*</span>
+            <span className="text-xs font-normal text-ink-400">
+              ({locale === 'ar' ? 'يكفي ملء لغة واحدة على الأقل' : 'At least one language required'})
+            </span>
+          </legend>
           <div className="grid gap-3 md:grid-cols-3">
             <TrilingualField lang="ar" label="العربيّة" value={values.nameAr} onChange={(v) => update('nameAr', v)} />
             <TrilingualField lang="fr" label="Français"  value={values.nameFr} onChange={(v) => update('nameFr', v)} />
@@ -268,7 +291,12 @@ export function ProductForm({
 
         {/* Descriptions trilingual */}
         <fieldset>
-          <legend className="mb-2 text-sm font-bold text-ink-800">{t('descSection')}</legend>
+          <legend className="mb-2 flex items-center gap-2 text-sm font-bold text-ink-800">
+            <span>{t('descSection')}</span>
+            <span className="text-xs font-normal text-ink-400">
+              ({locale === 'ar' ? 'اختياري' : 'Optional'})
+            </span>
+          </legend>
           <div className="grid gap-3 md:grid-cols-3">
             <TrilingualArea lang="ar" label="العربيّة" value={values.descAr} onChange={(v) => update('descAr', v)} />
             <TrilingualArea lang="fr" label="Français"  value={values.descFr} onChange={(v) => update('descFr', v)} />
@@ -278,7 +306,12 @@ export function ProductForm({
 
         {/* Specs — Arabic list (Phase 3.5 will sync across languages) */}
         <fieldset>
-          <legend className="mb-2 text-sm font-bold text-ink-800">{t('specsSection')}</legend>
+          <legend className="mb-2 flex items-center gap-2 text-sm font-bold text-ink-800">
+            <span>{t('specsSection')}</span>
+            <span className="text-xs font-normal text-ink-400">
+              ({locale === 'ar' ? 'اختياري' : 'Optional'})
+            </span>
+          </legend>
           {(['specsAr', 'specsFr', 'specsEn'] as const).map((kind) => (
             <div key={kind} className="mb-4">
               <div className="mb-1 text-xs font-semibold uppercase text-ink-500">
@@ -468,24 +501,28 @@ export function ProductForm({
         {/* Price + stock */}
         <div className="grid gap-5 md:grid-cols-2">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-ink-800">{t('price')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink-800">
+              {t('price')} <span className="text-xs font-normal text-ink-400">({locale === 'ar' ? 'اختياري' : 'Optional'})</span>
+            </label>
             <input
               type="number"
-              required
               min={0}
-              value={values.priceDZD}
-              onChange={(e) => update('priceDZD', Number(e.target.value))}
+              value={values.priceDZD || ''}
+              onChange={(e) => update('priceDZD', Number(e.target.value) || 0)}
+              placeholder="0"
               className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-ink-800">{t('stock')}</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink-800">
+              {t('stock')} <span className="text-xs font-normal text-ink-400">({locale === 'ar' ? 'اختياري' : 'Optional'})</span>
+            </label>
             <input
               type="number"
-              required
               min={0}
-              value={values.stock}
-              onChange={(e) => update('stock', Number(e.target.value))}
+              value={values.stock || ''}
+              onChange={(e) => update('stock', Number(e.target.value) || 0)}
+              placeholder="0"
               className="w-full rounded-xl border border-ink-200 bg-white px-4 py-3 text-sm focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10"
             />
           </div>
@@ -529,7 +566,6 @@ function TrilingualField({
       <label className="mb-1 block text-[11px] font-bold uppercase text-ink-500">{label}</label>
       <input
         type="text"
-        required
         dir={lang === 'ar' ? 'rtl' : 'ltr'}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -546,7 +582,6 @@ function TrilingualArea({
     <div>
       <label className="mb-1 block text-[11px] font-bold uppercase text-ink-500">{label}</label>
       <textarea
-        required
         rows={3}
         dir={lang === 'ar' ? 'rtl' : 'ltr'}
         value={value}
