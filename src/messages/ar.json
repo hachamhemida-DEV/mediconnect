@@ -550,7 +550,9 @@
     "share": "مشاركة",
     "backToCatalog": "العودة إلى الكتالوج",
     "relatedProducts": "منتجات ذات صلة",
-    "brand": "الماركة"
+    "brand": "الماركة",
+    "downloadCatalogue": "تحميل الكتالوج (PDF)",
+    "viewAllImages": "عرض جميع الصور"
   },
   "cart": {
     "title": "سلّة التسوّق",
@@ -693,7 +695,19 @@
     "update": "حفظ التغييرات",
     "delete": "حذف",
     "confirmDelete": "هل أنت متأكّد من حذف هذا المنتج؟",
-    "planLimit": "وصلت إلى الحدّ الأقصى لباقتك ({plan}): {limit} منتج. ارقِ باقتك للمزيد."
+    "planLimit": "وصلت إلى الحدّ الأقصى لباقتك ({plan}): {limit} منتج. ارقِ باقتك للمزيد.",
+    "catalogueSection": "كتالوج المنتج (PDF)",
+    "uploadCatalogue": "رفع كتالوج PDF",
+    "uploadCatalogueHint": "اسحب وأفلت ملف PDF هنا، أو انقر للتصفّح (الحدّ الأقصى 10 ميجا)",
+    "removeCatalogue": "حذف الكتالوج",
+    "catalogueReady": "تمّ رفع الكتالوج",
+    "imagesSection": "صور المنتج",
+    "uploadImages": "رفع صور",
+    "uploadImagesHint": "اسحب وأفلت الصور هنا، أو انقر للتصفّح (الحدّ الأقصى 5 صور، 5 ميجا لكلّ صورة)",
+    "removeImage": "حذف الصورة",
+    "maxImages": "الحدّ الأقصى {max} صور",
+    "downloadCatalogue": "تحميل الكتالوج (PDF)",
+    "viewAllImages": "عرض جميع الصور"
   },
   "admin": {
     "badge": "لوحة المدير",

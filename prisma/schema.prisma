@@ -154,6 +154,7 @@ model Product {
   priceDZD      Int
   stock         Int     @default(0)
   imagesJson    String  @default("[]")   // JSON array of URLs / data-URIs
+  cataloguePdf  String?                  // base64 data-URI of uploaded PDF catalogue
   rating        Float   @default(0)
   reviewsCount  Int     @default(0)
   featured      Boolean @default(false)

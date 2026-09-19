@@ -15,6 +15,7 @@ function rowToProduct(row: {
   descAr: string; descFr: string; descEn: string;
   specsAr: string; specsFr: string; specsEn: string;
   priceDZD: number; stock: number; imagesJson: string;
+  cataloguePdf: string | null;
   rating: number; reviewsCount: number; featured: boolean; createdAt: Date;
 }): Product {
   return {
@@ -37,6 +38,7 @@ function rowToProduct(row: {
     rating:       row.rating,
     reviewsCount: row.reviewsCount,
     featured:     row.featured,
+    cataloguePdf: row.cataloguePdf ?? undefined,
     createdAt:    row.createdAt.toISOString(),
   };
 }

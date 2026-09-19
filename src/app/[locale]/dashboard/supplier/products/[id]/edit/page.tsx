@@ -47,6 +47,8 @@ export default async function EditProductPage({ params }: Props) {
           specsAr:    product.specsAr, specsFr: product.specsFr, specsEn: product.specsEn,
           priceDZD:   product.price,
           stock:      product.stock,
+          images:     product.images,
+          cataloguePdf: product.cataloguePdf ?? null,
         }}
         submitUrl={`/api/supplier/products/${product.id}`}
         submitMethod="PATCH"

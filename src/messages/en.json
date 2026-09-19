@@ -550,7 +550,9 @@
     "share": "Share",
     "backToCatalog": "Back to catalog",
     "relatedProducts": "Related products",
-    "brand": "Brand"
+    "brand": "Brand",
+    "downloadCatalogue": "Download Catalogue (PDF)",
+    "viewAllImages": "View all images"
   },
   "cart": {
     "title": "Cart",
@@ -693,7 +695,19 @@
     "update": "Save changes",
     "delete": "Delete",
     "confirmDelete": "Delete this product?",
-    "planLimit": "You've reached your {plan} plan limit ({limit} products). Upgrade for more."
+    "planLimit": "You've reached your {plan} plan limit ({limit} products). Upgrade for more.",
+    "catalogueSection": "Product Catalogue (PDF)",
+    "uploadCatalogue": "Upload PDF Catalogue",
+    "uploadCatalogueHint": "Drag & drop a PDF file here, or click to browse (max 10 MB)",
+    "removeCatalogue": "Remove catalogue",
+    "catalogueReady": "Catalogue uploaded",
+    "imagesSection": "Product Images",
+    "uploadImages": "Upload Images",
+    "uploadImagesHint": "Drag & drop images here, or click to browse (max 5 images, 5 MB each)",
+    "removeImage": "Remove image",
+    "maxImages": "Maximum {max} images allowed",
+    "downloadCatalogue": "Download Catalogue (PDF)",
+    "viewAllImages": "View all images"
   },
   "admin": {
     "badge": "Admin",

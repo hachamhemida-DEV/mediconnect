@@ -17,6 +17,8 @@ const PatchSchema = z.object({
   specsEn:    z.array(z.string().min(1)).max(20).optional(),
   priceDZD:   z.coerce.number().int().min(0).max(1_000_000_000).optional(),
   stock:      z.coerce.number().int().min(0).max(100_000).optional(),
+  images:     z.array(z.string()).max(5).optional(),
+  cataloguePdf: z.string().nullable().optional(),
 });
 
 async function ownedOr403(productId: string, userId: string) {
@@ -50,12 +52,14 @@ export async function PATCH(
   const parsed = PatchSchema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ error: 'INVALID_INPUT', details: parsed.error.issues }, { status: 400 });
 
-  // Any arrays get JSON-stringified; others passthrough.
+  // Any arrays get JSON-stringified; images -> imagesJson; others passthrough.
   const data: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(parsed.data)) {
     if (v === undefined) continue;
     if (k === 'specsAr' || k === 'specsFr' || k === 'specsEn') {
       data[k] = JSON.stringify(v);
+    } else if (k === 'images') {
+      data['imagesJson'] = JSON.stringify(v);
     } else {
       data[k] = v;
     }

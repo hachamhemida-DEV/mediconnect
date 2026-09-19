@@ -24,8 +24,10 @@ const CreateSchema = z.object({
   specsAr:    z.array(z.string().min(1)).max(20).default([]),
   specsFr:    z.array(z.string().min(1)).max(20).default([]),
   specsEn:    z.array(z.string().min(1)).max(20).default([]),
-  priceDZD:   z.coerce.number().int().min(0).max(1_000_000_000),
-  stock:      z.coerce.number().int().min(0).max(100_000),
+  priceDZD:      z.coerce.number().int().min(0).max(1_000_000_000),
+  stock:         z.coerce.number().int().min(0).max(100_000),
+  images:        z.array(z.string()).max(5).default([]),
+  cataloguePdf:  z.string().optional(),
 });
 
 export async function POST(req: Request) {
@@ -74,7 +76,8 @@ export async function POST(req: Request) {
       specsEn:      JSON.stringify(parsed.data.specsEn),
       priceDZD:     parsed.data.priceDZD,
       stock:        parsed.data.stock,
-      imagesJson:   '[]',
+      imagesJson:   JSON.stringify(parsed.data.images),
+      cataloguePdf: parsed.data.cataloguePdf ?? null,
       // Gold tier products auto-featured
       featured:     supplier.plan === 'gold',
     },

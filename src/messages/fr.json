@@ -550,7 +550,9 @@
     "share": "Partager",
     "backToCatalog": "Retour au catalogue",
     "relatedProducts": "Produits liés",
-    "brand": "Marque"
+    "brand": "Marque",
+    "downloadCatalogue": "Télécharger le catalogue (PDF)",
+    "viewAllImages": "Voir toutes les images"
   },
   "cart": {
     "title": "Panier",
@@ -693,7 +695,19 @@
     "update": "Enregistrer",
     "delete": "Supprimer",
     "confirmDelete": "Confirmer la suppression ?",
-    "planLimit": "Limite de votre offre ({plan}) atteinte : {limit} produits. Passez à l'offre supérieure."
+    "planLimit": "Limite de votre offre ({plan}) atteinte : {limit} produits. Passez à l'offre supérieure.",
+    "catalogueSection": "Catalogue produit (PDF)",
+    "uploadCatalogue": "Télécharger le catalogue PDF",
+    "uploadCatalogueHint": "Glissez-déposez un fichier PDF ici, ou cliquez pour parcourir (max 10 Mo)",
+    "removeCatalogue": "Supprimer le catalogue",
+    "catalogueReady": "Catalogue téléchargé",
+    "imagesSection": "Images du produit",
+    "uploadImages": "Télécharger des images",
+    "uploadImagesHint": "Glissez-déposez des images ici, ou cliquez pour parcourir (max 5 images, 5 Mo chacune)",
+    "removeImage": "Supprimer l'image",
+    "maxImages": "Maximum {max} images autorisées",
+    "downloadCatalogue": "Télécharger le catalogue (PDF)",
+    "viewAllImages": "Voir toutes les images"
   },
   "admin": {
     "badge": "Admin",

@@ -6,6 +6,8 @@ import { Footer } from '@/components/layout/Footer';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { AddToCartButton } from '@/components/catalog/AddToCartButton';
 import { ReviewsList } from '@/components/reviews/ReviewsList';
+import { ProductGallery } from '@/components/catalog/ProductGallery';
+import { CatalogueDownload } from '@/components/catalog/CatalogueDownload';
 import {
   productName, productDesc, productSpecs, categoryName,
 } from '@/lib/seed';
@@ -68,23 +70,12 @@ export default async function ProductPage({ params }: Props) {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
             {/* Gallery */}
             <div>
-              <div className="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-200/60">
-                <div className="relative aspect-[4/3] bg-gradient-to-br from-ink-50 to-ink-100">
-                  {product.images[0] ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={product.images[0]} alt="" className="h-full w-full object-cover" />
-                  ) : (
-                    <div className="grid h-full place-items-center text-8xl">
-                      {category?.icon ?? '📦'}
-                    </div>
-                  )}
-                  {product.featured && (
-                    <span className="absolute top-4 start-4 inline-flex items-center gap-1 rounded-full bg-amber-500 px-3 py-1.5 text-xs font-bold text-white shadow-card-lg">
-                      ★ {tc('featured')}
-                    </span>
-                  )}
-                </div>
-              </div>
+              <ProductGallery
+                images={product.images}
+                categoryIcon={category?.icon ?? '📦'}
+                featured={product.featured}
+                featuredLabel={tc('featured')}
+              />
             </div>
 
             {/* Info */}
@@ -152,6 +143,16 @@ export default async function ProductPage({ params }: Props) {
               <div className="mt-6">
                 <AddToCartButton productId={product.id} stock={product.stock} />
               </div>
+
+              {/* PDF Catalogue download */}
+              {product.cataloguePdf && (
+                <div className="mt-6">
+                  <CatalogueDownload
+                    dataUri={product.cataloguePdf}
+                    productName={productName(product, activeLocale)}
+                  />
+                </div>
+              )}
 
               {/* Supplier card */}
               {supplier && (

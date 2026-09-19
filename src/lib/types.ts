@@ -114,6 +114,8 @@ export interface Product {
   reviewsCount: number;
   /** Whether this product is featured in search (supplier paid, or Gold plan) */
   featured: boolean;
+  /** base64 data-URI of uploaded PDF catalogue */
+  cataloguePdf?: string;
   createdAt: string;
 }
 
