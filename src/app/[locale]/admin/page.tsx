@@ -35,10 +35,10 @@ export default async function AdminOverviewPage({ params }: Props) {
   const revenue = revenueRows._sum.totalDZD ?? 0;
 
   const kpis = [
-    { key: 'users',     value: totalUsers,   color: 'text-brand-600',  bg: 'bg-brand-100',  icon: '👥', sub: `${totalBuyers}B · ${totalSuppliers}S · ${totalDelivery}D` },
-    { key: 'products',  value: totalProducts,color: 'text-sky-600',    bg: 'bg-sky-100',    icon: '📦' },
-    { key: 'orders',    value: totalOrders,  color: 'text-violet-600', bg: 'bg-violet-100', icon: '🧾' },
-    { key: 'revenue',   value: revenue,      color: 'text-emerald-600',bg: 'bg-emerald-100',icon: '💰', money: true },
+    { key: 'users',     value: totalUsers,   color: 'text-brand-600',  bg: 'bg-brand-100',  icon: '👥', sub: `${totalBuyers}B · ${totalSuppliers}S · ${totalDelivery}D`, href: '/admin/suppliers' },
+    { key: 'products',  value: totalProducts,color: 'text-sky-600',    bg: 'bg-sky-100',    icon: '📦', href: '/admin/products' },
+    { key: 'orders',    value: totalOrders,  color: 'text-violet-600', bg: 'bg-violet-100', icon: '🧾', href: '/admin/orders' },
+    { key: 'revenue',   value: revenue,      color: 'text-emerald-600',bg: 'bg-emerald-100',icon: '💰', money: true, href: '/admin/orders' },
   ];
 
   const queues = [
@@ -54,8 +54,8 @@ export default async function AdminOverviewPage({ params }: Props) {
 
       {/* KPI cards */}
       <section className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {kpis.map(({ key, value, color, bg, icon, money, sub }) => (
-          <div key={key} className="card-mc p-5">
+        {kpis.map(({ key, value, color, bg, icon, money, sub, href }) => (
+          <Link key={key} href={href} className="card-mc p-5 transition hover:-translate-y-1 hover:shadow-card-lg">
             <div className={`mb-3 grid h-10 w-10 place-items-center rounded-xl ${bg} text-xl`}>{icon}</div>
             <div className={`text-3xl font-extrabold ${color}`}>
               {money ? formatDZD(value, currencyLoc) : new Intl.NumberFormat(currencyLoc).format(value)}
@@ -64,7 +64,7 @@ export default async function AdminOverviewPage({ params }: Props) {
               {t(`overview.kpi.${key}`)}
             </div>
             {sub && <div className="mt-1 text-[11px] text-ink-400">{sub}</div>}
-          </div>
+          </Link>
         ))}
       </section>
 

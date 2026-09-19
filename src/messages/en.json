@@ -714,9 +714,19 @@
     "nav": {
       "overview": "Overview",
       "suppliers": "Suppliers",
+      "products": "Products",
       "orders": "Orders",
       "payments": "Payments",
       "rfqs": "RFQs"
+    },
+    "products": {
+      "title": "Platform Products",
+      "subtitle": "Manage, monitor, and remove products across all suppliers",
+      "searchPlaceholder": "Search by product name, brand, or supplier...",
+      "allCategories": "All Categories",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this product? This action cannot be undone.",
+      "empty": "No products found."
     },
     "overview": {
       "title": "Overview",

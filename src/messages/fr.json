@@ -714,9 +714,19 @@
     "nav": {
       "overview": "Vue d'ensemble",
       "suppliers": "Fournisseurs",
+      "products": "Produits",
       "orders": "Commandes",
       "payments": "Paiements",
       "rfqs": "Demandes de devis"
+    },
+    "products": {
+      "title": "Produits de la plateforme",
+      "subtitle": "Gérer, modérer et supprimer les produits de tous les fournisseurs",
+      "searchPlaceholder": "Rechercher par nom, marque ou fournisseur...",
+      "allCategories": "Toutes les catégories",
+      "delete": "Supprimer",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.",
+      "empty": "Aucun produit trouvé."
     },
     "overview": {
       "title": "Vue d'ensemble",
