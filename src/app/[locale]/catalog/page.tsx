@@ -1,14 +1,17 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getLocale } from 'next-intl/server';
-import { listProducts } from '@/lib/catalog';
-import { productName, productDesc } from '@/lib/seed';
+import { listProducts, countProducts } from '@/lib/catalog';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { CatalogFilters } from '@/components/catalog/CatalogFilters';
 import { CatalogSearchBar } from '@/components/catalog/CatalogSearchBar';
 import { SponsoredSlot } from '@/components/ads/SponsoredSlot';
-import type { Product } from '@/lib/types';
+import { Link } from '@/i18n/routing';
+
+export const dynamic = 'force-dynamic';
+
+const PAGE_SIZE = 24;
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -30,29 +33,41 @@ export default async function CatalogPage({ params, searchParams }: Props) {
   const min      = single(sp.min);
   const max      = single(sp.max);
   const sort     = single(sp.sort) ?? 'featured';
+  const page     = Math.max(1, Number(single(sp.page)) || 1);
 
   const t = await getTranslations('catalog');
-  const activeLocale = await getLocale();
 
-  // Filter + sort at the DB level
-  let products: Product[] = await listProducts({
+  const filterOpts = {
     categoryId: category,
     minPrice:   min ? Number(min) : undefined,
     maxPrice:   max ? Number(max) : undefined,
     q,
-    sort:       sort as 'featured' | 'priceAsc' | 'priceDesc' | 'rating' | 'newest',
-  });
+  };
 
-  // Arabic/French/English search still needs a case-insensitive pass (SQLite
-  // `contains` is case-sensitive by default). Do a best-effort client-side
-  // refinement when a query is present.
-  if (q) {
-    const needle = q.toLowerCase();
-    products = products.filter((p) =>
-      productName(p, activeLocale).toLowerCase().includes(needle) ||
-      productDesc(p, activeLocale).toLowerCase().includes(needle) ||
-      p.brand.toLowerCase().includes(needle),
-    );
+  // Run product listing + count in parallel for speed
+  const [products, totalCount] = await Promise.all([
+    listProducts({
+      ...filterOpts,
+      sort: sort as 'featured' | 'priceAsc' | 'priceDesc' | 'rating' | 'newest',
+      take: PAGE_SIZE,
+      skip: (page - 1) * PAGE_SIZE,
+    }),
+    countProducts(filterOpts),
+  ]);
+
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+  // Build pagination URL helper
+  function pageUrl(p: number) {
+    const sp = new URLSearchParams();
+    if (q) sp.set('q', q);
+    if (category) sp.set('category', category);
+    if (min) sp.set('min', min);
+    if (max) sp.set('max', max);
+    if (sort && sort !== 'featured') sp.set('sort', sort);
+    if (p > 1) sp.set('page', String(p));
+    const qs = sp.toString();
+    return qs ? `/catalog?${qs}` : '/catalog';
   }
 
   return (
@@ -87,7 +102,7 @@ export default async function CatalogPage({ params, searchParams }: Props) {
             <div>
               <div className="mb-5 flex items-center justify-between">
                 <p className="text-sm font-semibold text-ink-600">
-                  {t('resultsCount', { count: products.length })}
+                  {t('resultsCount', { count: totalCount })}
                 </p>
               </div>
 
@@ -105,11 +120,46 @@ export default async function CatalogPage({ params, searchParams }: Props) {
                   <h3 className="text-lg font-bold text-ink-900">{t('noResults')}</h3>
                 </div>
               ) : (
-                <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                  {products.map((p) => (
-                    <ProductCard key={p.id} product={p} />
-                  ))}
-                </div>
+                <>
+                  <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                    {products.map((p) => (
+                      <ProductCard key={p.id} product={p} />
+                    ))}
+                  </div>
+
+                  {/* Pagination */}
+                  {totalPages > 1 && (
+                    <nav className="mt-8 flex items-center justify-center gap-2">
+                      {page > 1 && (
+                        <Link
+                          href={pageUrl(page - 1)}
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-4 py-2.5 text-sm font-semibold text-ink-700 transition hover:bg-ink-50 hover:border-brand-300"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                            <path d="M15 18l-6-6 6-6" />
+                          </svg>
+                          {t('previous') ?? 'Previous'}
+                        </Link>
+                      )}
+
+                      <span className="rounded-xl bg-brand-50 px-4 py-2.5 text-sm font-bold text-brand-700 ring-1 ring-brand-200">
+                        {page} / {totalPages}
+                      </span>
+
+                      {page < totalPages && (
+                        <Link
+                          href={pageUrl(page + 1)}
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-ink-200 bg-white px-4 py-2.5 text-sm font-semibold text-ink-700 transition hover:bg-ink-50 hover:border-brand-300"
+                        >
+                          {t('next') ?? 'Next'}
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </Link>
+                      )}
+                    </nav>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -119,3 +169,4 @@ export default async function CatalogPage({ params, searchParams }: Props) {
     </>
   );
 }
+

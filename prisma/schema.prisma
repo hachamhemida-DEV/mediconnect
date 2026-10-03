@@ -167,6 +167,8 @@ model Product {
   @@index([categoryId])
   @@index([supplierId])
   @@index([featured])
+  @@index([priceDZD])
+  @@index([createdAt])
 }
 
 // ---------------------------------------------------------------
@@ -330,4 +332,7 @@ model AdCampaign {
 
   @@index([supplierId])
   @@index([active])
+  @@index([active, placement])
+  @@index([startsAt])
+  @@index([endsAt])
 }

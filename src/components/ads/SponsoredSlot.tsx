@@ -21,8 +21,8 @@ export async function SponsoredSlot({ placement, categoryId, limit = 3 }: Props)
   const ads = await listActiveAds({ placement, categoryId, limit });
   if (ads.length === 0) return null;
 
-  // Fire-and-forget impression bump. Runs server-side every render.
-  await trackImpressions(ads.map((a) => a.id));
+  // Fire-and-forget impression bump — don't block rendering.
+  void trackImpressions(ads.map((a) => a.id)).catch(() => {});
 
   const locale = await getLocale();
   const t = await getTranslations('ads.sponsored');

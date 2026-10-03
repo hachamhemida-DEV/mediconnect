@@ -534,7 +534,9 @@
     "outOfStock": "غير متوفّر",
     "inStock": "متوفّر ({count})",
     "viewDetails": "عرض التفاصيل",
-    "featured": "مميّز"
+    "featured": "مميّز",
+    "previous": "السابق",
+    "next": "التالي"
   },
   "product": {
     "specifications": "المواصفات",

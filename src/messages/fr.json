@@ -534,7 +534,9 @@
     "outOfStock": "Rupture",
     "inStock": "En stock ({count})",
     "viewDetails": "Voir détails",
-    "featured": "En vedette"
+    "featured": "En vedette",
+    "previous": "Précédent",
+    "next": "Suivant"
   },
   "product": {
     "specifications": "Spécifications",

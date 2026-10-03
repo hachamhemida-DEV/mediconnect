@@ -534,7 +534,9 @@
     "outOfStock": "Out of stock",
     "inStock": "In stock ({count})",
     "viewDetails": "View details",
-    "featured": "Featured"
+    "featured": "Featured",
+    "previous": "Previous",
+    "next": "Next"
   },
   "product": {
     "specifications": "Specifications",

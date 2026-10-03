@@ -78,6 +78,8 @@ export async function listProducts(opts: {
   maxPrice?: number;
   q?: string;
   sort?: 'featured' | 'priceAsc' | 'priceDesc' | 'rating' | 'newest';
+  take?: number;
+  skip?: number;
 } = {}): Promise<Product[]> {
   const where: Record<string, unknown> = {};
   if (opts.categoryId) where.categoryId = opts.categoryId;
@@ -91,13 +93,13 @@ export async function listProducts(opts: {
   if (opts.q) {
     const q = opts.q;
     where.OR = [
-      { nameAr: { contains: q } },
-      { nameFr: { contains: q } },
-      { nameEn: { contains: q } },
-      { brand:  { contains: q } },
-      { descAr: { contains: q } },
-      { descFr: { contains: q } },
-      { descEn: { contains: q } },
+      { nameAr: { contains: q, mode: 'insensitive' } },
+      { nameFr: { contains: q, mode: 'insensitive' } },
+      { nameEn: { contains: q, mode: 'insensitive' } },
+      { brand:  { contains: q, mode: 'insensitive' } },
+      { descAr: { contains: q, mode: 'insensitive' } },
+      { descFr: { contains: q, mode: 'insensitive' } },
+      { descEn: { contains: q, mode: 'insensitive' } },
     ];
   }
 
@@ -108,7 +110,58 @@ export async function listProducts(opts: {
     opts.sort === 'newest'    ? { createdAt: 'desc' } :
                                 { featured:  'desc' };
 
-  const rows = await prisma.product.findMany({ where, orderBy });
+  const rows = await prisma.product.findMany({
+    where,
+    orderBy,
+    take: opts.take,
+    skip: opts.skip,
+  });
+  return rows.map(rowToProduct);
+}
+
+/** Count products matching filters (for pagination UI). */
+export async function countProducts(opts: {
+  categoryId?: string;
+  supplierId?: string;
+  minPrice?: number;
+  maxPrice?: number;
+  q?: string;
+} = {}): Promise<number> {
+  const where: Record<string, unknown> = {};
+  if (opts.categoryId) where.categoryId = opts.categoryId;
+  if (opts.supplierId) where.supplierId = opts.supplierId;
+  if (opts.minPrice != null || opts.maxPrice != null) {
+    where.priceDZD = {
+      ...(opts.minPrice != null ? { gte: opts.minPrice } : {}),
+      ...(opts.maxPrice != null ? { lte: opts.maxPrice } : {}),
+    };
+  }
+  if (opts.q) {
+    const q = opts.q;
+    where.OR = [
+      { nameAr: { contains: q, mode: 'insensitive' } },
+      { nameFr: { contains: q, mode: 'insensitive' } },
+      { nameEn: { contains: q, mode: 'insensitive' } },
+      { brand:  { contains: q, mode: 'insensitive' } },
+      { descAr: { contains: q, mode: 'insensitive' } },
+      { descFr: { contains: q, mode: 'insensitive' } },
+      { descEn: { contains: q, mode: 'insensitive' } },
+    ];
+  }
+  return prisma.product.count({ where });
+}
+
+/** Fetch a few related products (same category, excluding a given product). */
+export async function listRelatedProducts(
+  categoryId: string,
+  excludeId: string,
+  limit = 4,
+): Promise<Product[]> {
+  const rows = await prisma.product.findMany({
+    where: { categoryId, id: { not: excludeId } },
+    orderBy: { featured: 'desc' },
+    take: limit,
+  });
   return rows.map(rowToProduct);
 }
 

@@ -12,10 +12,12 @@ import {
   productName, productDesc, productSpecs, categoryName,
 } from '@/lib/seed';
 import {
-  findProduct, findCategory, findSupplier, listProducts,
+  findProduct, findCategory, findSupplier, listRelatedProducts,
 } from '@/lib/catalog';
 import { WILAYAS, wilayaName } from '@/lib/wilayas';
 import { formatDZD } from '@/lib/utils';
+
+export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ locale: string; id: string }>;
@@ -25,21 +27,24 @@ export default async function ProductPage({ params }: Props) {
   const { locale, id } = await params;
   setRequestLocale(locale);
 
-  const product = await findProduct(id);
+  // First batch: fetch product + locale + translations in parallel
+  const [product, activeLocale, t, tc] = await Promise.all([
+    findProduct(id),
+    getLocale(),
+    getTranslations('product'),
+    getTranslations('catalog'),
+  ]);
   if (!product) notFound();
 
-  const category = await findCategory(product.categoryId);
-  const supplier = await findSupplier(product.supplierId);
-  const activeLocale = await getLocale();
-  const t  = await getTranslations('product');
-  const tc = await getTranslations('catalog');
+  // Second batch: fetch related data in parallel (all depend on product)
+  const [category, supplier, related] = await Promise.all([
+    findCategory(product.categoryId),
+    findSupplier(product.supplierId),
+    listRelatedProducts(product.categoryId, product.id, 4),
+  ]);
 
   const supplierWilaya = supplier && WILAYAS.find((w) => w.code === supplier.wilayaCode);
   const currencyLoc = locale === 'ar' ? 'ar-DZ' : locale === 'fr' ? 'fr-DZ' : 'en-DZ';
-
-  // Related: same category, different product, up to 4
-  const all = await listProducts({ categoryId: product.categoryId });
-  const related = all.filter((p) => p.id !== product.id).slice(0, 4);
 
   return (
     <>
